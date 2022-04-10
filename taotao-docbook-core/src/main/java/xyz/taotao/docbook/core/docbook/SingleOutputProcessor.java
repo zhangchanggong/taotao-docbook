@@ -19,6 +19,10 @@ import javax.xml.transform.sax.SAXSource;
  */
 @Slf4j
 public class SingleOutputProcessor extends ClassNameConfigKeyProcesser<SingleOutputProcessor.SingleOutputProcessorConfig> implements DocbookProcessor<SingleOutputProcessor.SingleOutputProcessorConfig> {
+    public SingleOutputProcessor() {
+        super(SingleOutputProcessorConfig.class);
+    }
+
     /**
      * 处理过程
      *
@@ -26,8 +30,9 @@ public class SingleOutputProcessor extends ClassNameConfigKeyProcesser<SingleOut
      * @throws TaotaoDocbookException 可能的抛出的异常
      */
     @Override
-    public void process(SingleOutputProcessorConfig config) throws TaotaoDocbookException {
+    protected void doProcess(SingleOutputProcessorConfig config) throws TaotaoDocbookException {
         log.info("SingleOutputProcessor.process config={}", config);
+        SingleOutputProcessorConfig theConfig= (SingleOutputProcessorConfig) config;
         Transformer transformer = XmlUtils.getTransformer(config.xsltFile, config.xsltDir);
         SAXSource srcSource = XmlUtils.getSAXSource(config.docbookFile, config.docbookDir);
         Result descResult = XmlUtils.getResult(config.resultFile, config.resultDir);
