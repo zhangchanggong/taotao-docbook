@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<providers>
+    <provider class-name="org.apache.commons.vfs2.provider.res.ResourceFileProvider">
+        <scheme name="classpath"/>
+        <scheme name="classpath*"/>
+    </provider>
+</providers>

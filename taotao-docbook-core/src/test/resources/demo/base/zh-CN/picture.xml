@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+	xml:lang="zh_CN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>图片</title>
+	<figure>
+		<title>标题，也就是题注</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/uml/base.jpg" align="center"
+					scalefit="0" scale="80" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<para>这就是插入图片的效果。</para>
+</section>

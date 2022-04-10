@@ -1,0 +1,15 @@
+# taotao-docbook
+
+这是一个为了 docbook 的扩展而做的工程，其主要功能如下：
+
+1. 定义以 docbook 为核心文档转换流程。
+1. 定义基于 maven 的文档工程结构。
+1. 给出基于 maven 的转换插件。
+1. 给出基于 commons-vfs 的资源定位方案。
+1. 给出针对中文的 docbook-xslt 扩展。
+1. 给出针对 ooxml 的 docbook-xslt 扩展
+
+[NOTE]
+====
+上述目标的前三条 jboss 的 jdocbook 插件已经实现，但依赖陈旧，难以调试，难以扩展。这里我们将其解决掉。
+====

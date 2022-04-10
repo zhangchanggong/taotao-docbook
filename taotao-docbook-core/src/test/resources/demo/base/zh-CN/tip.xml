@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+	xml:lang="zh_CN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>贴士，TIP</title>
+	<para>一般的tip效果，用于处理“节外生枝”的描述。这个东西看起来很炫，但是对程序员而言用起来挺困难的。当然下面的名字翻译地不准确是一个方面。但重要的是很难对一些信息进行分类。</para>
+	<section>
+		<title>注意</title>
+		<tip>
+			<title>注意</title>
+			<para>各种注意事项</para>
+		</tip>
+	</section>
+	<section>
+		<title>提示</title>
+		<note>
+			<title>提示</title>
+			<para>各种提示事项</para>
+		</note>
+	</section>
+	<section>
+		<title>警告</title>
+		<warning>
+			<title>警告</title>
+			<para>各种警告事项</para>
+		</warning>
+	</section>
+	<section>
+		<title>要点</title>
+		<caution>
+			<title>要点</title>
+			<para>各种要点事项</para>
+		</caution>
+	</section>
+	<section>
+		<title>重要</title>
+		<important>
+			<title>重要</title>
+			<para>各种重要事项</para>
+		</important>
+	</section>
+</section>

@@ -1,0 +1,58 @@
+# taotao-docbook-core
+:numbered:
+:figure-caption: 图
+
+taotao-docbook 的核心业务模块，仅实现以下目标：
+
+1. 定义以 docbook 为核心文档转换流程。
+1. 给出基于 commons-vfs 的资源定位方案。
+
+## 概念
+
+[plantuml,basic_concept,align="center"]
+.基本概念设计
+--
+@startuml
+rectangle "docbook xml + 图片 + 样式 + ..." as src
+rectangle "最终文档" as desc
+frame "taotao-docbook-core" {
+    component "流程" as Job
+    component "前处理器" as PreProcesser
+    component "docbook 处理器" as DocbookProcesser
+    component "后处理器" as PostProcesser
+    Job --"0..*" PreProcesser
+    Job --"1" DocbookProcesser
+    Job --"0..*" PostProcesser
+}
+src -right-> Job
+Job -right-> desc
+@enduml
+--
+
+### 流程
+
+表示从文档的源文件、资源、样式、生成规则等转换成最终文档的全过程。
+
+### 前处理器
+
+流程中可以包括一个或若干个不同的前处理器，每个前处理器仅能执行一遍。可能的功能包括但不限于：
+
+1. PlantUML 转图片
+1. 目标地址清理
+1. 资源侦测
+1. 其他文件转 docbook xml 等
+
+
+### docbook 处理器
+
+直接面对 docbook 处理的处理器，每个流程，仅做一次 docbook 处理。这个处理器中仅处理 docbook 层面的问题。
+
+### 后处理器
+
+流程中可以包括一个或若干个不同的后处理器，每个后处理器仅能执行一遍。可能的功能包括但不限于：
+
+1. 聚合资源
+1. 渲染 fo 文件
+1. 文件封包
+
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0"
+	xml:lang="zh_CN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<articleinfo>
+		<title>测试用的自由文档</title>
+        <subtitle>测试用的自由文档子标题</subtitle>
+		<author>
+			<personname>王金涛</personname>
+		</author>
+		<revhistory>
+			<revision>
+				<revnumber>0.0.1</revnumber>
+				<date>2015-01-01</date>
+				<revremark>创建该文档。</revremark>
+                <authorinitials>王金涛</authorinitials>
+			</revision>
+			<revision>
+				<revnumber>0.0.2</revnumber>
+				<date>2015-01-02</date>
+				<revremark>修改该文档。</revremark>
+                <authorinitials>王金涛</authorinitials>
+			</revision>
+		</revhistory>
+	</articleinfo>
+	<!-- 章节与正文  -->
+	<xi:include href="section.xml" ></xi:include>
+	<!-- 表格  -->
+<!--	<xi:include href="table.xml" ></xi:include>-->
+	<!-- 图片  -->
+<!--	<xi:include href="picture.xml" ></xi:include>-->
+	<!-- 贴士  -->
+	<xi:include href="tip.xml" ></xi:include>
+	<!-- 代码与代码高亮  -->
+	<xi:include href="program.xml" ></xi:include>
+</article>

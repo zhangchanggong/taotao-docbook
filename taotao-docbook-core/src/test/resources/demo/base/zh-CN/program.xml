@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0"
+	xml:lang="zh_CN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>代码与代码高亮</title>
+	<para>这才是重头戏，代码与代码高亮。洋洋洒洒数千言，不如一篇例子来的简单。</para>
+	<section>
+		<title>一般的程序高亮与标注</title>
+		<programlisting language="c">/*
+ ============================================================================
+ Name        : test.c
+ Author      : wangjintao
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */ <co id="common-begin" linkends="common-begin-txt"/>
+
+#include &lt;stdio.h>
+#include &lt;stdlib.h>
+
+int main(void) {
+    puts("!!!Hello World!!!"); <co id="hw-begin" linkends="hw-begin-txt"/> /* prints !!!Hello World!!! */
+    return EXIT_SUCCESS; <co id="return-begin" linkends="return-begin-txt"/>
+}</programlisting>
+	<calloutlist>
+		<callout id="common-begin-txt" arearefs="common-begin">
+			<para>这是注释。</para>
+		</callout>
+		<callout id="hw-begin-txt" arearefs="hw-begin">
+			<para>输出hello world。</para>
+		</callout>
+		<callout id="return-begin-txt" arearefs="return-begin">
+			<para>程序的返回值。</para>
+		</callout>
+	</calloutlist>
+	<para>这就是一般的效果，包括程序高亮和标注。如果使用标注，就不能使用CDATA，另外注意，缩进使用空格的效果要比tab好。</para>
+	</section>
+	<section>
+		<title>c++ 高亮测试</title>
+		<programlisting language="cpp"><![CDATA[/* This is sample C++ code */
+#include <cstdio>
+#define MACRO(x) x
+using namespace std;
+// This comment may span only this line
+typedef unsigned int uint;
+int static myfunc(uint parameter) {
+    if (parameter == 0) fprintf(stdout, "zero\n");
+    cout << "hello\n";
+    return parameter - 1;
+}
+class MyClass {
+public:
+    enum Number { ZERO, ONE, TWO };
+    static char staticField;
+    int field;
+    virtual Number vmethod();
+    void method(Number n) const {
+        int local= (int)MACRO('\0');
+        label: myfunc(local);
+        vmethod();
+        staticMethod();
+        problem();
+    }
+    static void staticMethod();
+};]]></programlisting>
+	</section>
+		<section>
+		<title>java高亮测试</title>
+		<programlisting language="java"><![CDATA[/**
+ * This is about <code>ClassName</code>.
+ * {@link com.yourCompany.aPackage.Interface}
+ * @author author
+ * @deprecated use <code>OtherClass</code>
+ */
+public class ClassName<E> extends AnyClass implements InterfaceName<String> {
+	enum Color { RED, GREEN, BLUE };
+	/* This comment may span multiple lines. */
+	static Object staticField;
+	// This comment may span only this line
+	private E field;
+	private AbstractClassName field2;
+	// TASK: refactor
+	@SuppressWarnings(value="all")
+	public int foo(Integer parameter) {
+		abstractMethod(inheritedField);
+		int local= 42*hashCode();
+		staticMethod();
+		return bar(local) + parameter;
+	}
+}]]></programlisting>
+	</section>
+	<section>
+		<title>html高亮测试</title>
+		<programlisting language="html"><![CDATA[<!-- 测试 -->
+<div width="300px" height="200px">测试用div</div>]]></programlisting>
+	</section>
+		<section>
+		<title>xml高亮测试</title>
+		<programlisting language="xml">&lt;!-- 测试 -->
+&lt;colors>
+	&lt;color key="red">&lt;![CDATA[#FF0000]]&gt;&lt;/color>
+&lt;/colors></programlisting>
+	</section>
+		<section>
+		<title>css高亮测试</title>
+		<programlisting language="css"><![CDATA[@import url("documentation.css");
+@import url("docnav.css");
+@import url("reports.css");
+@import url("extensions.css");
+@import url("codehighlight.css");
+
+body {
+    background-image:url(../images/wjt/bkg_gradient.gif);
+    background-repeat:repeat-x;
+    margin:0 auto;
+    font-family:'Lucida Grande', Geneva, Verdana, Arial, sans-serif;
+    font-size:12px;
+    max-width:55em;
+    padding:0em 2em;
+    color:#333;
+    line-height:150%;
+    text-align:justify;
+}
+
+/* Links */
+
+a:link {color:#0066cc;}
+
+a:visited {color:#6699cc;}
+
+div.longdesc-link {
+    float:right;
+    color:#999;
+}]]></programlisting>
+	</section>
+		<section>
+		<title>javascript高亮测试</title>
+		<programlisting language="javascript"><![CDATA[/**
+ * This is about <code>Example.js</code>.
+ * {@link com.yourCompany.aPackage.aFile}
+ * @author author
+ * @deprecated use <code>BetterExample.js</code>
+ */
+var index = 0;
+var arr = [];
+
+function foo() {
+    /* This comment may span multiple lines. */
+    var var1 = new Object();
+    var obj = { carMake: 'Amet', carModel: 'Porro', carYear: 2012 };
+    var s = "abc123";
+    clear(var1);
+}
+
+function pop() {
+    return arr[index--];
+}
+
+function push(elem) {
+    // This comment may span only this line
+    arr[index++] = elem;
+}
+
+function isEmpty() {
+    // TASK: refactor
+    return index == 0;
+}]]></programlisting>
+	</section>
+			<section>
+		<title>sql高亮测试</title>
+		<programlisting language="sql"><![CDATA[SELECT `dbid`, `id`, `code`, `base_group`, `name`, `sex`, `email`, `phone`, `mobile`, `flag`, `dep_code`, `dep_id`, `operation_type`, `def`, `induty_date`, `outduty_date` FROM `employee_information` WHERE 1
+--注释
+DROP TABLE IF EXISTS base_log_template;
+CREATE TABLE base_log_template
+(
+  dbid bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '物理主键',
+  session_id character(36) COMMENT 'SessionID',
+  user_id character(36) COMMENT '操作执行人的业务ID',
+  user_name character varying(32) COMMENT '真实姓名',
+  account character varying(32) COMMENT '账号',
+  direct_ip character varying(32) COMMENT '直接IP',
+  real_ip character varying(256) COMMENT '真实IP',
+  create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '日志生成时间',
+  level character varying(16) COMMENT '日志级别',
+  class_location character varying(128) COMMENT '类的位置',
+  method_location character varying(64) COMMENT '方法的位置',
+  line_location character varying(8) COMMENT '行号位置',
+  content text COMMENT '日志内容'
+);
+
+DROP TABLE IF EXISTS base_log_access;
+CREATE TABLE base_log_access LIKE base_log_template;
+
+DROP TABLE IF EXISTS base_log_operation;
+CREATE TABLE base_log_operation LIKE base_log_template;]]></programlisting>
+	</section>
+</section>
