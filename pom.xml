@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
 
@@ -158,6 +159,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <forkedProcessExitTimeoutInSeconds>60</forkedProcessExitTimeoutInSeconds>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${settings.localRepository}/net/sf/docbook/docbook-xsl/${docbook-xsl.version}/docbook-xsl-${docbook-xsl.version}-ns-resources.zip</additionalClasspathElement>
+                    </additionalClasspathElements>
                 </configuration>
             </plugin>
         </plugins>
