@@ -1,14 +1,9 @@
 package xyz.taotao.docbook.core.docbook;
 
-import org.apache.commons.vfs2.FileSystemException;
-import org.apache.commons.vfs2.VFS;
-import org.apache.commons.vfs2.impl.DefaultFileSystemManager;
 import org.junit.jupiter.api.Test;
 import xyz.taotao.docbook.core.DocbookProcessor;
-import xyz.taotao.docbook.core.ProcessorConfig;
 
 import java.io.File;
-import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
 
