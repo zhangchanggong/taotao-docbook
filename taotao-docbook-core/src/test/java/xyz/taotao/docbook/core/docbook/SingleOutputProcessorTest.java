@@ -16,12 +16,6 @@ class SingleOutputProcessorTest {
 
     @Test
     void process() {
-
-        try {
-            URL.setURLStreamHandlerFactory(VFS.getManager().getURLStreamHandlerFactory());
-        } catch (FileSystemException e) {
-            throw new RuntimeException(e);
-        }
         DocbookProcessor docbookProcessor=new SingleOutputProcessor();
         SingleOutputProcessor.SingleOutputProcessorConfig config=new SingleOutputProcessor.SingleOutputProcessorConfig();
         config.setXsltDir("classpath://xslt/xyz/taotao");
