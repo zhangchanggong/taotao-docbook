@@ -1,0 +1,17 @@
+<fop version="1.0">
+    <!-- 是否使用严格的用户配置 -->
+    <strict-configuration>true</strict-configuration>
+    <!-- 是否进行严格校验 -->
+    <strict-validation>true</strict-validation>
+    <!-- 相对资源所对应的绝对路径 -->
+    <base>./</base>
+    <!-- 相对字体文件所对应的绝对路径 -->
+    <font-base>classpath://docbook/taotao/fonts</font-base>
+
+    <!-- 原始资源分辨率 72 像素/英寸 (屏幕分辨率)-->
+    <source-resolution>72</source-resolution>
+    <!-- 目标资源分辨率 72 像素/英寸 (屏幕分辨率，这个配置参数存疑，考虑打印质量的话应该是 144 像素/英寸) -->
+    <target-resolution>72</target-resolution>
+    <!-- 默认纸张大小 -->
+    <default-page-settings height="11in" width="8.26in"/>
+</fop>

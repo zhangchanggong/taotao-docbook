@@ -7,6 +7,8 @@ import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.FileSystemManager;
 import org.apache.commons.vfs2.VFS;
 
+import java.net.URI;
+
 /**
  * 基于 commons-vfs 资源定位工具
  */
@@ -45,6 +47,17 @@ public class VFSUtils {
             log.debug("------------------ getResource 结束 -----------------");
             return vfsm.resolveFile(baseFile, href);
         }
+    }
+
+    /**
+     * 根据 URI 获取 FileObject
+     * @param uri 统一资源定位符
+     * @return 对应的 FileObject
+     * @throws FileSystemException 发生内部错误
+     */
+    public static FileObject getResource(URI uri) throws FileSystemException{
+        FileSystemManager fsm = VFS.getManager();
+        return fsm.resolveFile(uri);
     }
 
 

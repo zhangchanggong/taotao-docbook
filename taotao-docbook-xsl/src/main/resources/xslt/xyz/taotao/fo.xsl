@@ -310,6 +310,7 @@
 				<xsl:when test="not(parent::d:chapter | parent::d:article | parent::d:appendix)">
 					<xsl:value-of select="$title.color" />
 				</xsl:when>
+				<xsl:otherwise>inherit</xsl:otherwise>
 			</xsl:choose>
 		</xsl:attribute>
 		<xsl:attribute name="text-align">
