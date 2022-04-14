@@ -1,6 +1,8 @@
 package xyz.taotao.docbook.core.util;
 
 import lombok.extern.slf4j.Slf4j;
+import net.sf.saxon.Configuration;
+import net.sf.saxon.TransformerFactoryImpl;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
 import org.xml.sax.InputSource;
@@ -8,6 +10,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import xyz.taotao.docbook.core.TaotaoDocbookException;
 import xyz.taotao.docbook.core.docbook.VFSURIResolver;
+import xyz.taotao.docbook.core.highlight.Highlight;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
@@ -49,6 +52,8 @@ public class XmlUtils {
         log.debug("------------------ getTransformer 开始 -----------------");
         TransformerFactory transformerFactory = getTransformerFactory();
         transformerFactory.setURIResolver(new VFSURIResolver());
+        configFactory(transformerFactory);
+
         try {
             Source source = getSource(href, base);
             Transformer transformer = transformerFactory.newTransformer(source);
@@ -61,6 +66,16 @@ public class XmlUtils {
             log.debug("------------------ getTransformer 结束 -----------------");
         }
     }
+
+    private static void configFactory(TransformerFactory transformerFactory) {
+        if (transformerFactory instanceof TransformerFactoryImpl){
+            TransformerFactoryImpl tfi=(TransformerFactoryImpl) transformerFactory;
+
+            Configuration configuration=tfi.getConfiguration();
+            configuration.registerExtensionFunction(new Highlight());
+        }
+    }
+
 
     /**
      * 基于 SPI 获取 SAXParserFactory
