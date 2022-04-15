@@ -45,7 +45,7 @@
 	<!-- 空白页有页脚 -->
 	<xsl:param name="footers.on.blank.pages" select="1"/>
 	<!-- 页眉三列的比例是1:2:1 -->
-	<xsl:param name="header.column.widths">1 2 1</xsl:param>
+	<xsl:param name="header.column.widths">1 0 1</xsl:param>
 	<!-- 页脚三列的比例是1:2:1 -->
 	<xsl:param name="footer.column.widths">1 2 1</xsl:param>
 	<!-- 页上边距15毫米 -->
@@ -63,13 +63,13 @@
 	<!-- (左装订)非装订侧页宽30毫米 -->
 	<xsl:param name="page.margin.outer">
 		<xsl:choose>
-			<xsl:when test="$double.sided != 0">20mm</xsl:when>
+			<xsl:when test="$double.sided != 0">25mm</xsl:when>
 			<xsl:otherwise>30mm</xsl:otherwise>
 		</xsl:choose></xsl:param>
 	<!-- (左装订)装订侧页宽30毫米 -->
 	<xsl:param name="page.margin.inner">
 		<xsl:choose>
-			<xsl:when test="$double.sided != 0">40mm</xsl:when>
+			<xsl:when test="$double.sided != 0">35mm</xsl:when>
 			<xsl:otherwise>30mm</xsl:otherwise>
 		</xsl:choose>
 	</xsl:param>
@@ -87,7 +87,7 @@
 		xslt 处理器扩展
 	-->
 	<!-- 使用fop 0.20.5 之后的扩展 -->
-	<xsl:param name="fop.extensions" select="1" />
+	<xsl:param name="fop.extensions" select="0" />
 	<!-- 使用fop 0.90 之后的扩展 -->
 	<xsl:param name="fop1.extensions" select="1" />
 	<!--  Processor Extensions end  -->
@@ -999,18 +999,7 @@
 				<xsl:variable name="text">
 					<xsl:call-template name="component.title.nomarkup" />
 				</xsl:variable>
-<!--				<xsl:variable name="chapt">-->
-<!--					<xsl:value-of select="substring-before($text, '&#xA0;')" />-->
-<!--				</xsl:variable>-->
-<!--				<xsl:variable name="remainder">-->
-<!--					<xsl:value-of select="substring-after($text, '&#xA0;')" />-->
-<!--				</xsl:variable>-->
-<!--				<xsl:variable name="chapt-num">-->
-<!--					<xsl:value-of select="substring-before($remainder, '&#xA0;')" />-->
-<!--				</xsl:variable>-->
-<!--				<xsl:variable name="text1">-->
-<!--					<xsl:value-of select="concat($chapt, '&#xA0;', $chapt-num)" />-->
-<!--				</xsl:variable>-->
+
 				<!-- 正文左页页眉 -->
 				<fo:inline keep-together.within-line="always" font-weight="bold">
 					<xsl:value-of select="$text" />
@@ -1039,7 +1028,8 @@
 				<!--xsl:if test="$pageclass != 'titlepage'" -->
 				<fo:inline keep-together.within-line="always">
 					<fo:retrieve-marker retrieve-class-name="section.head.marker"
-										retrieve-position="first-including-carryover" retrieve-boundary="page-sequence" />
+										retrieve-position="first-including-carryover"
+										retrieve-boundary="page-sequence" />
 				</fo:inline>
 				<!--/xsl:if -->
 			</xsl:when>
@@ -1169,7 +1159,7 @@
 	<xsl:template match="d:title" mode="book.titlepage.recto.auto.mode">
 		<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format"
 				  xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center"
-				  font-size="20pt" space-before="18.6624pt" font-weight="bold"
+				  font-size="34pt" space-before="18.6624pt" font-weight="bold"
 				  font-family="{$title.fontset}">
 			<xsl:call-template name="division.title">
 				<xsl:with-param name="node" select="ancestor-or-self::d:book[1]" />
@@ -1180,7 +1170,7 @@
 	<xsl:template match="d:subtitle" mode="book.titlepage.recto.auto.mode">
 		<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format"
 				  xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center"
-				  font-size="34pt" space-before="30pt" font-family="{$title.fontset}">
+				  font-size="20pt" space-before="30pt" font-family="{$title.fontset}">
 			<xsl:apply-templates select="."
 								 mode="book.titlepage.recto.mode" />
 		</fo:block>

@@ -4,9 +4,10 @@
     <!-- 是否进行严格校验 -->
     <strict-validation>true</strict-validation>
     <!-- 相对资源所对应的绝对路径 -->
-    <base>./</base>
+<!--    <base>./</base>-->
     <!-- 相对字体文件所对应的绝对路径 -->
-    <font-base>classpath://docbook/taotao/fonts</font-base>
+    <font-base>../fonts</font-base>
+
 
     <!-- 原始资源分辨率 72 像素/英寸 (屏幕分辨率)-->
     <source-resolution>72</source-resolution>
@@ -14,4 +15,67 @@
     <target-resolution>72</target-resolution>
     <!-- 默认纸张大小 -->
     <default-page-settings height="11in" width="8.26in"/>
+
+    <hyphenation-pattern lang="zh" country="cn">zh_Latn</hyphenation-pattern>
+    <renderers>
+        <renderer mime="application/pdf">
+            <version>1.7</version>
+            <fonts>
+                <font embed-url="FreeSerif.ttf">
+                    <font-triplet name="FreeSerif" style="normal" weight="normal" />
+                    <font-triplet name="FreeSerif" style="normal" weight="bold" />
+                    <font-triplet name="FreeSerif" style="italic" weight="bold" />
+                    <font-triplet name="FreeSerif" style="italic" weight="normal" />
+                </font>
+                <font embed-url="zapfdingbats.ttf">
+                    <font-triplet name="ZapfDingbats" style="normal" weight="normal" />
+                    <font-triplet name="ZapfDingbats" style="normal" weight="bold" />
+                    <font-triplet name="ZapfDingbats" style="italic" weight="bold" />
+                    <font-triplet name="ZapfDingbats" style="italic" weight="normal" />
+                </font>
+                <font embed-url="symbol.ttf">
+                    <font-triplet name="Symbol" style="normal" weight="normal" />
+                    <font-triplet name="Symbol" style="normal" weight="bold" />
+                    <font-triplet name="Symbol" style="italic" weight="bold" />
+                    <font-triplet name="Symbol" style="italic" weight="normal" />
+                </font>
+                <font embed-url="DejaVuSans.ttf">
+                    <font-triplet name="DejaVu Sans" style="normal" weight="normal" />
+                    <font-triplet name="DejaVu Sans" style="normal" weight="bold" />
+                    <font-triplet name="DejaVu Sans" style="italic" weight="bold" />
+                    <font-triplet name="DejaVu Sans" style="italic" weight="normal" />
+                </font>
+                <font embed-url="DejaVuSansMono.ttf">
+                    <font-triplet name="DejaVu Sans Mono" style="normal" weight="normal" />
+                    <font-triplet name="DejaVu Sans Mono" style="normal" weight="bold" />
+                    <font-triplet name="DejaVu Sans Mono" style="italic" weight="bold" />
+                    <font-triplet name="DejaVu Sans Mono" style="italic" weight="normal" />
+                </font>
+                <font embed-url="DejaVuSerif.ttf">
+                    <font-triplet name="DejaVu Serif" style="normal" weight="normal" />
+                    <font-triplet name="DejaVu Serif" style="normal" weight="bold" />
+                    <font-triplet name="DejaVu Serif" style="italic" weight="bold" />
+                    <font-triplet name="DejaVu Serif" style="italic" weight="normal" />
+                </font>
+                <font embed-url="fz_fangsong.ttf">
+                    <font-triplet name="FZFangSong-Z02" style="normal" weight="normal" />
+                    <font-triplet name="FZFangSong-Z02" style="normal" weight="bold" />
+                    <font-triplet name="FZFangSong-Z02" style="italic" weight="bold" />
+                    <font-triplet name="FZFangSong-Z02" style="italic" weight="normal" />
+                </font>
+                <font embed-url="fz_heiti.ttf">
+                    <font-triplet name="FZHei-B01" style="normal" weight="normal" />
+                    <font-triplet name="FZHei-B01" style="normal" weight="bold" />
+                    <font-triplet name="FZHei-B01" style="italic" weight="bold" />
+                    <font-triplet name="FZHei-B01" style="italic" weight="normal" />
+                </font>
+                <font embed-url="fz_kai.ttf">
+                    <font-triplet name="FZKai-Z03" style="normal" weight="normal" />
+                    <font-triplet name="FZKai-Z03" style="normal" weight="bold" />
+                    <font-triplet name="FZKai-Z03" style="italic" weight="bold" />
+                    <font-triplet name="FZKai-Z03" style="italic" weight="normal" />
+                </font>
+            </fonts>
+        </renderer>
+    </renderers>
 </fop>

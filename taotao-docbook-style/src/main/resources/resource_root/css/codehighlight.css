@@ -1,0 +1,18 @@
+span.property {color:#0066CC;}
+
+pre.JAVA {line-height:10px;}
+
+pre.XML {line-height:8px;}
+
+pre.JSP {line-height:8px;}
+
+pre.XHTML {line-height:8px;}
+
+pre CODE {
+    font-size:12px;
+    color:rgb(0,0,0);
+    font-family:monospace; 
+    white-space:nowrap;
+}
+
+

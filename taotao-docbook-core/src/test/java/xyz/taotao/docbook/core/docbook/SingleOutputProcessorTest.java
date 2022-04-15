@@ -18,6 +18,7 @@ class SingleOutputProcessorTest {
         config.setDocbookDir("classpath://demo/base/zh-CN");
         config.setDocbookFile("demo-docbook-tmpl-book.xml");
         config.setResultFile(new File("./target/demo/fo/demo-docbook-tmpl.xml").getAbsolutePath());
+        config.setLanguage("zh-CN");
 
         assertDoesNotThrow(()->{
             docbookProcessor.process(config);

@@ -3,10 +3,7 @@ package xyz.taotao.docbook.core.docbook;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import xyz.taotao.docbook.core.ClassNameConfigKeyProcesser;
-import xyz.taotao.docbook.core.DocbookProcessor;
-import xyz.taotao.docbook.core.ProcessorConfig;
-import xyz.taotao.docbook.core.TaotaoDocbookException;
+import xyz.taotao.docbook.core.*;
 import xyz.taotao.docbook.core.util.XmlUtils;
 
 import javax.xml.transform.Result;
@@ -34,6 +31,7 @@ public class SingleOutputProcessor extends ClassNameConfigKeyProcesser<SingleOut
         log.info("SingleOutputProcessor.process config={}", config);
         SingleOutputProcessorConfig theConfig= (SingleOutputProcessorConfig) config;
         Transformer transformer = XmlUtils.getTransformer(config.xsltFile, config.xsltDir);
+        transformer.setParameter(TaotaoDocbookConstant.L10N_GENTEXT_LANGUAGE,config.language);
         SAXSource srcSource = XmlUtils.getSAXSource(config.docbookFile, config.docbookDir);
         Result descResult = XmlUtils.getResult(config.resultFile, config.resultDir);
         try {
@@ -76,5 +74,9 @@ public class SingleOutputProcessor extends ClassNameConfigKeyProcesser<SingleOut
          * vfs 格式
          */
         private String resultFile;
+        /**
+         * 语言 ll-CC 的格式
+         */
+        private String language;
     }
 }

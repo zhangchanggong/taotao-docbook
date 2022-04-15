@@ -90,7 +90,7 @@
 
     <!-- Localization begin -->
     <!-- 默认语言 -->
-    <xsl:param name="l10n.gentext.default.language" select="'zh_cn'"/>
+    <xsl:param name="l10n.gentext.default.language" select="'zh-CN'"/>
     <!--  Localization end  -->
 
     <!-- 自定义变量 begin -->
