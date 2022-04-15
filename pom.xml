@@ -32,6 +32,8 @@
         <fop.version>2.7</fop.version>
         <fop-hyph.version>2.0</fop-hyph.version>
         <io.version>2.11.0</io.version>
+        <jai-imageio.version>1.4.0</jai-imageio.version>
+        <twelvemonkeys-imageio.version>3.8.2</twelvemonkeys-imageio.version>
 
         <plugin-compiler.version>3.8.1</plugin-compiler.version>
         <plugin-source.version>3.0.1</plugin-source.version>
@@ -114,6 +116,26 @@
                 <groupId>net.sf.offo</groupId>
                 <artifactId>fop-hyph</artifactId>
                 <version>${fop-hyph.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.jai-imageio</groupId>
+                <artifactId>jai-imageio-jpeg2000</artifactId>
+                <version>${jai-imageio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.twelvemonkeys.imageio</groupId>
+                <artifactId>imageio-jpeg</artifactId>
+                <version>${twelvemonkeys-imageio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.twelvemonkeys.imageio</groupId>
+                <artifactId>imageio-tiff</artifactId>
+                <version>${twelvemonkeys-imageio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.twelvemonkeys.imageio</groupId>
+                <artifactId>imageio-bmp</artifactId>
+                <version>${twelvemonkeys-imageio.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

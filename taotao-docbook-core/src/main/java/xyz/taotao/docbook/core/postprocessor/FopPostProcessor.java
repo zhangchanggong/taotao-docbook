@@ -34,7 +34,7 @@ public class FopPostProcessor extends ClassNameConfigKeyProcesser<FopPostProcess
         FopFactory fopFactory = builder.build();
         try {
             FileObject output = VFSUtils.getResource(config.outFile, config.outDir);
-            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF,output.getContent().getOutputStream());
+            Fop fop = fopFactory.newFop(config.mimeType,output.getContent().getOutputStream());
             TransformerFactory transformerFactory = XmlUtils.getTransformerFactory();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setParameter(TaotaoDocbookConstant.L10N_GENTEXT_LANGUAGE,config.language);

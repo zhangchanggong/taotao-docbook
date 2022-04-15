@@ -24,6 +24,7 @@ class FopPostProcessorTest {
         config.setFoFile("demo-docbook-tmpl.fo");
         config.setMimeType(MimeConstants.MIME_PDF);
         config.setOutDir(new File("./target/docbook/publish").getAbsolutePath());
+//        config.setOutFile("ps/demo-docbook-tmpl.eps");
         config.setOutFile("pdf/demo-docbook-tmpl.pdf");
         config.setStagingDir(new File("./target/docbook/staging").getAbsolutePath());
 
