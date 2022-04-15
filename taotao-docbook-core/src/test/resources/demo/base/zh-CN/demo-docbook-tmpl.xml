@@ -25,7 +25,7 @@
 	<!-- 章节与正文  -->
 	<xi:include href="section.xml" ></xi:include>
 	<!-- 表格  -->
-<!--	<xi:include href="table.xml" ></xi:include>-->
+	<xi:include href="table.xml" ></xi:include>
 	<!-- 图片  -->
 <!--	<xi:include href="picture.xml" ></xi:include>-->
 	<!-- 贴士  -->

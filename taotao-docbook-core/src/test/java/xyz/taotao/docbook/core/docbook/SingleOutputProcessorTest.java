@@ -16,8 +16,8 @@ class SingleOutputProcessorTest {
         config.setXsltDir("classpath://xslt/xyz/taotao");
         config.setXsltFile("fo.xsl");
         config.setDocbookDir("classpath://demo/base/zh-CN");
-        config.setDocbookFile("demo-docbook-tmpl-book.xml");
-        config.setResultFile(new File("./target/demo/fo/demo-docbook-tmpl.xml").getAbsolutePath());
+        config.setDocbookFile("demo-docbook-tmpl.xml");
+        config.setResultFile(new File("./target/demo/fo/demo-docbook-tmpl.fo").getAbsolutePath());
         config.setLanguage("zh-CN");
 
         assertDoesNotThrow(()->{

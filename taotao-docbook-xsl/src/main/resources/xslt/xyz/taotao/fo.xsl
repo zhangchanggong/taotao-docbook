@@ -45,7 +45,7 @@
 	<!-- 空白页有页脚 -->
 	<xsl:param name="footers.on.blank.pages" select="1"/>
 	<!-- 页眉三列的比例是1:2:1 -->
-	<xsl:param name="header.column.widths">1 0 1</xsl:param>
+	<xsl:param name="header.column.widths">1 2 1</xsl:param>
 	<!-- 页脚三列的比例是1:2:1 -->
 	<xsl:param name="footer.column.widths">1 2 1</xsl:param>
 	<!-- 页上边距15毫米 -->
@@ -1494,7 +1494,7 @@
 			</xsl:choose>
 		</fo:block>
 
-		<fo:table table-layout="fix" width="{$table.width}"
+		<fo:table table-layout="auto" width="{$table.width}"
 				  xsl:use-attribute-sets="revhistory.table.properties">
 			<fo:table-column column-number="1" />
 			<fo:table-column column-number="2" />
