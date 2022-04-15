@@ -27,7 +27,7 @@
 	<!-- 表格  -->
 	<xi:include href="table.xml" ></xi:include>
 	<!-- 图片  -->
-<!--	<xi:include href="picture.xml" ></xi:include>-->
+	<xi:include href="picture.xml" ></xi:include>
 	<!-- 贴士  -->
 	<xi:include href="tip.xml" ></xi:include>
 	<!-- 代码与代码高亮  -->

@@ -27,6 +27,7 @@ class FopPostProcessorTest {
 //        config.setOutFile("ps/demo-docbook-tmpl.eps");
         config.setOutFile("pdf/demo-docbook-tmpl.pdf");
         config.setStagingDir(new File("./target/docbook/staging").getAbsolutePath());
+        config.setTargetResolution(144f);
 
 
         FileObject src = VFSUtils.getResource("classpath://resource_root", null);

@@ -22,7 +22,7 @@ import javax.xml.transform.sax.SAXResult;
 @Slf4j
 public class FopPostProcessor extends ClassNameConfigKeyProcesser<FopPostProcessor.FopPostConfig> implements PostProcessor<FopPostProcessor.FopPostConfig> {
 
-    protected FopPostProcessor() {
+    public FopPostProcessor() {
         super(FopPostConfig.class);
     }
 
@@ -31,6 +31,8 @@ public class FopPostProcessor extends ClassNameConfigKeyProcesser<FopPostProcess
         FopFactoryBuilder builder = FopUtils.getFactoryBuilder(config.stagingDir, config.resourceDir);
         DefaultConfiguration configuration = FopUtils.getConfig(config.fopConfigPath);
         builder.setConfiguration(configuration);
+        builder.setSourceResolution(config.sourceResolution);
+        builder.setTargetResolution(config.targetResolution);
         FopFactory fopFactory = builder.build();
         try {
             FileObject output = VFSUtils.getResource(config.outFile, config.outDir);
@@ -97,6 +99,14 @@ public class FopPostProcessor extends ClassNameConfigKeyProcesser<FopPostProcess
          * 输出文件的 type 取值参考 org.apache.fop.apps.MimeConstants
          */
         private String mimeType;
+        /**
+         * 源分辨率
+         */
+        private float sourceResolution=72f;
+        /**
+         * 目标分辨率
+         */
+        private float targetResolution=72f;
 
         @Override
         public String toString() {
@@ -110,6 +120,8 @@ public class FopPostProcessor extends ClassNameConfigKeyProcesser<FopPostProcess
                     .append("outFile", outFile)
                     .append("language", language)
                     .append("mimeType", mimeType)
+                    .append("sourceResolution", sourceResolution)
+                    .append("targetResolution", targetResolution)
                     .toString();
         }
     }

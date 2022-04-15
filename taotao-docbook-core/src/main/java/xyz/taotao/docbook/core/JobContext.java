@@ -16,20 +16,28 @@ public class JobContext {
      * docbook 首文件所在的路径（不包括文件本身）
      * vfs 格式
      */
-    private String docbookPath;
+    private String docbookDir;
     /**
      * docbook 首文件文件名
      */
-    private String docbookFileName;
+    private String docbookFile;
+    /**
+     * 工作目录
+     */
+    private String workDir;
     /**
      * 目标文件所在的路径（不包括文件本身）
      * vfs 格式
      */
-    private String descPath;
+    private String descDir;
     /**
      * 目标文件文件名
      */
-    private String descFileName;
+    private String descFile;
+    /**
+     * 输出的参考语言
+     */
+    private String language;
     /**
      * 预处理器配置
      */
@@ -42,5 +50,29 @@ public class JobContext {
      * docbook 处理过程的配置
      */
     private ProcessorConfig docbookProcessorConfig;
+    /**
+     * 提供通用资源的路径
+     * vfs 格式
+     */
+    private String[] resourcePaths;
+    /**
+     * 提供字体的路径
+     * vfs 格式
+     */
+    private String[] fontPaths;
+    /**
+     * 提供docx 西苑的路径
+     */
+    private String[] docxPaths;
 
+    /**
+     * xslt 首文件所在的路径（不包括文件本身）
+     * vfs 格式
+     */
+    private String xsltDir;
+    /**
+     * xslt 首文件所在的路径，如果是绝对路径，则 xsltDirPath 不生效
+     * vfs 格式
+     */
+    private String xsltFile;
 }
