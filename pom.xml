@@ -11,6 +11,7 @@
         <module>taotao-docbook-core</module>
         <module>taotao-docbook-xsl</module>
         <module>taotao-docbook-style</module>
+        <module>taotao-docbook-maven-plugin</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -34,6 +35,8 @@
         <io.version>2.11.0</io.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
         <twelvemonkeys-imageio.version>3.8.2</twelvemonkeys-imageio.version>
+        <maven-plugin-api.version>3.8.5</maven-plugin-api.version>
+        <maven-plugin-annotations.version>3.6.4</maven-plugin-annotations.version>
 
         <plugin-compiler.version>3.8.1</plugin-compiler.version>
         <plugin-source.version>3.0.1</plugin-source.version>
@@ -44,6 +47,7 @@
         <plugin-jacoco.version>0.8.7</plugin-jacoco.version>
         <plugin-shade.version>3.2.4</plugin-shade.version>
         <plugin-surefire.version>3.0.0-M5</plugin-surefire.version>
+        <plugin-plugin.version>3.6.4</plugin-plugin.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -136,6 +140,16 @@
                 <groupId>com.twelvemonkeys.imageio</groupId>
                 <artifactId>imageio-bmp</artifactId>
                 <version>${twelvemonkeys-imageio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-plugin-api</artifactId>
+                <version>${maven-plugin-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugin-tools</groupId>
+                <artifactId>maven-plugin-annotations</artifactId>
+                <version>${maven-plugin-annotations.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -266,6 +280,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${plugin-surefire.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>${plugin-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

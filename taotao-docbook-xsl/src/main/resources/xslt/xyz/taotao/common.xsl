@@ -11,7 +11,8 @@
         xmlns:d="http://docbook.org/ns/docbook"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         version="1.0">
-
+    <!-- 令图片保持相对路径 -->
+    <xsl:param name="keep.relative.image.uris" select="1"/>
     <!-- Admonitions begin -->
     <!--
         强调性标注，各变量含义见参考章节的 "Admonitions" 小节

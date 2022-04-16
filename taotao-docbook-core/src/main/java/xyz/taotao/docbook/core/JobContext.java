@@ -38,18 +38,7 @@ public class JobContext {
      * 输出的参考语言
      */
     private String language;
-    /**
-     * 预处理器配置
-     */
-    private Map<String, ProcessorConfig> preProcessorConfigs;
-    /**
-     * 后处理器配置
-     */
-    private Map<String, ProcessorConfig> postProcessorConfigs;
-    /**
-     * docbook 处理过程的配置
-     */
-    private ProcessorConfig docbookProcessorConfig;
+
     /**
      * 提供通用资源的路径
      * vfs 格式
@@ -75,4 +64,17 @@ public class JobContext {
      * vfs 格式
      */
     private String xsltFile;
+
+    /**
+     * 预处理器配置
+     */
+    private Map<String, ProcessorConfig> preProcessorConfigs;
+    /**
+     * 后处理器配置
+     */
+    private Map<String, ProcessorConfig> postProcessorConfigs;
+    /**
+     * docbook 处理过程的配置
+     */
+    private ProcessorConfig docbookProcessorConfig;
 }
