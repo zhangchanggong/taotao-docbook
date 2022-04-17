@@ -1,16 +1,16 @@
 @import url("documentation.css");
+@import url("titlepage.css");
 @import url("docnav.css");
 @import url("reports.css");
 @import url("extensions.css");
 @import url("codehighlight.css");
 
 body {
-    background-image:url("../images/ecloude/bkg_gradient.gif");
     background-repeat:repeat-x;
     margin:0 auto;
     font-family:'Lucida Grande', Geneva, Verdana, Arial, sans-serif;
-    font-size:12px;
-    max-width:55em;
+    font-size:16px;
+    max-width:120em;
     padding:0em 2em;
     color:#333;
     line-height:150%;
@@ -39,7 +39,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    background-image:url(../images/ecloude/title_hdr.png);
     background-repeat:no-repeat;
     border-top:1px dotted #CCCCCC;
     line-height:1.2em;
@@ -48,7 +47,9 @@ h1 {
     padding:1.5em;
 }
 
-h2 {font-size:1.6em;}
+h2 {
+    font-size:1.6em;
+}
 
 h3 {
     font-size:1.3em;
@@ -62,7 +63,7 @@ h4 {
     padding-bottom:0em;
 }
 
-h5.formalpara {
+h5, .formalpara {
     font-size:1em;
     margin-top:2em;
     margin-bottom:.8em;
@@ -77,4 +78,6 @@ hr {
     width:100% !important;
 }
 
-sup {color:#999;}
+sup {
+    color:#999;
+}

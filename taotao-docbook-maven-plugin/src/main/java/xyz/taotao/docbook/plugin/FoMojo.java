@@ -56,7 +56,7 @@ public class FoMojo extends AbstractDocBookMojo{
         context.setResourcePaths(resourcePaths.toArray(new String[0]));
         context.setFontPaths(fontPaths.toArray(new String[0]));
         context.setDocxPaths(docxPaths.toArray(new String[0]));
-
+        log.info("context=[{}]",context);
         XslFoJob job = new XslFoJob();
         try {
             job.process(context);

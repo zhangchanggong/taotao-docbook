@@ -1,0 +1,9 @@
+/**
+标题页相关的样式
+ */
+.article>.titlepage .title,.article>.titlepage .subtitle,.article>.titlepage .author{
+    text-align: center;
+}
+.titlepage em{
+    font-style: normal;
+}

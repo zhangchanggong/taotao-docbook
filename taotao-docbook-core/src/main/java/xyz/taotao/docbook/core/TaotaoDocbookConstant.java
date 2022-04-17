@@ -33,4 +33,9 @@ public class TaotaoDocbookConstant {
      * fo 文件文件夹
      */
     public final static String FO_DIR="fo";
+    /**
+     * html 默认文件夹
+     */
+    public final static String HTML_DIR="html";
+
 }

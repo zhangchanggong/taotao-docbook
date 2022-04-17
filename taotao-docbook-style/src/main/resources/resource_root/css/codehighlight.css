@@ -1,18 +1,33 @@
-span.property {color:#0066CC;}
-
-pre.JAVA {line-height:10px;}
-
-pre.XML {line-height:8px;}
-
-pre.JSP {line-height:8px;}
-
-pre.XHTML {line-height:8px;}
-
-pre CODE {
-    font-size:12px;
-    color:rgb(0,0,0);
-    font-family:monospace; 
-    white-space:nowrap;
+pre.programlisting {
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-family: monospace;
+    padding: 16px;
 }
+
+pre.programlisting .hl-keyword,pre.programlisting .hl-directive {
+    color: #7F0055;
+}
+pre.programlisting .hl-comment {
+    color: #3F7F5F;
+}
+pre.programlisting .hl-tag {
+    color: #008080;
+}
+
+pre.programlisting .hl-string {
+    color: #2A00FF;
+}
+pre.programlisting .hl-html{
+    color: #008080;
+}
+pre.programlisting .hl-attribute{
+    color: #7F007F;
+}
+pre.programlisting .hl-value{
+    color: #2A00FF;
+}
+
+
 
 

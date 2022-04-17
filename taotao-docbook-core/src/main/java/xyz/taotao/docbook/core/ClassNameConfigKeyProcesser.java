@@ -1,6 +1,7 @@
 package xyz.taotao.docbook.core;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.vfs2.FileSystemException;
 
 /**
  * 基于类名定义的 config key 的处理器

@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import xyz.taotao.docbook.core.*;
 import xyz.taotao.docbook.core.docbook.SingleOutputProcessor;
 import xyz.taotao.docbook.core.postprocessor.FopPostProcessor;
@@ -131,5 +133,10 @@ public class XslFoJob implements Job<XslFoJob.XslFoJobContext> {
          * 目标分辨率
          */
         private float targetResolution=72f;
+
+        @Override
+        public String toString() {
+            return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+        }
     }
 }

@@ -120,7 +120,7 @@
 }
 
 .navheader td.next a {
-    background:url(../images/wjt/docbook/next.png) top right no-repeat;
+    background:url(../images/taotao/docbook/next.png) top right no-repeat;
     padding-top:10px;
     padding-bottom:15px;
     height:40px;
@@ -129,7 +129,7 @@
 }
 
 .navheader td.previous a {
-    background:url(../images/wjt/docbook/prev.png) top left no-repeat;
+    background:url(../images/taotao/docbook/prev.png) top left no-repeat;
     padding-top:10px;
     padding-bottom:15px;
     height:40px;
@@ -157,7 +157,7 @@
 }
 
 .navfooter td.next a {
-    background:url(../images/wjt/docbook/next.png) top right no-repeat;
+    background:url(../images/taotao/docbook/next.png) top right no-repeat;
     padding-top:10px;
     padding-bottom:15px;
     height:40px;
@@ -166,7 +166,7 @@
 }
 
 .navfooter td.previous a {
-    background:url(../images/wjt/docbook/prev.png) top left no-repeat;
+    background:url(../images/taotao/docbook/prev.png) top left no-repeat;
     padding-top:10px;
     padding-bottom:15px;
     height:40px;
@@ -175,7 +175,7 @@
 }
 
 .navfooter td.home a {
-    background:url(../images/wjt/docbook/home.png) top left no-repeat;
+    background:url(../images/taotao/docbook/home.png) top left no-repeat;
     padding-top:10px;
     padding-bottom:15px;
     height:40px;
@@ -184,7 +184,7 @@
 }
 
 .navfooter td.up a {
-    background:url(../images/wjt/docbook/up.png) top left no-repeat;
+    background:url(../images/taotao/docbook/up.png) top left no-repeat;
     padding-top:10px;
     padding-bottom:15px;
     height:40px;
