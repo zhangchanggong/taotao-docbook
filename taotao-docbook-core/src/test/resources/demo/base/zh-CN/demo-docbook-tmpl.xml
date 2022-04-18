@@ -24,6 +24,8 @@
 	</articleinfo>
 	<!-- 章节与正文  -->
 	<xi:include href="section.xml" ></xi:include>
+	<!-- 列表项  -->
+	<xi:include href="list.xml" ></xi:include>
 	<!-- 表格  -->
 	<xi:include href="table.xml" ></xi:include>
 	<!-- 图片  -->

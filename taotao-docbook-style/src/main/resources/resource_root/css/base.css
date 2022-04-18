@@ -1,0 +1,181 @@
+/**
+    基本文档样式方案
+    只有这个 css 直接使用标签 或 标签+伪类
+ */
+/**
+    基本页面样式
+    1. 整体居中
+    2. 字体序列（族）
+    3. 基础字号 16px （四号）
+    4. 最大宽度 120em
+    5. 页面内衬 上下 无 左右 2em
+    6. 基础字色 纯黑
+    7. 1.5 倍行高
+    8. 两端对齐
+ */
+body {
+    margin: 0 auto;
+    font-family: SimSun, Arial, "Arial Narrow", HELVETICA;
+    font-size: 16px;
+    max-width: 80em;
+    padding: 0 2em;
+    color: #333;
+    line-height: 150%;
+    text-align: justify;
+}
+
+/* Links */
+
+a:link {
+    color: #0066cc;
+}
+
+a:visited {
+    color: #6699cc;
+}
+
+/* 标题 */
+h1, h2, h3, h4, h5, h6 {
+    color: #000;
+    margin-top: 0em;
+    background-color: transparent;
+    font-family: "Microsoft Yahei", Avenir, "Segoe UI", "Hiragino Sans GB", STHeiti, "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+}
+
+/**
+    一级标题
+    1. 1.83125 倍标准字体
+ */
+h1 {
+    font-size: 1.83125em;
+    line-height: 200%;
+    border-top: 1px dotted #CCCCCC;
+}
+
+/**
+    二级标题
+    1.83125 倍标准字体
+ */
+h2 {
+    font-size: 1.83125em;
+}
+
+/**
+    三级标题
+    1.5 倍标准字体
+ */
+h3 {
+    font-size: 1.5em;
+}
+
+/**
+    四级标题
+    1.33125 倍标准字体
+ */
+h4 {
+    font-size: 1.33125em;
+}
+
+/**
+    五级标题
+    1.25 倍标准字体
+ */
+h5 {
+    font-size: 1.25em;
+}
+
+/**
+    六级标题
+    1.16875 倍标准字体
+ */
+h6 {
+    font-size: 1.16875em;
+}
+
+
+/* Element rules */
+
+hr {
+    border-collapse: collapse;
+    border-style: none;
+    border-top: 1px dotted #ccc;
+    width: 100% !important;
+}
+
+sup {
+    color: #999;
+}
+
+/**
+    自然段缩进 2 em
+ */
+p {
+    text-indent: 2em;
+}
+
+/**
+列表
+ */
+ol li, ul li {
+    padding-left: .2em;
+    padding-bottom: .5em;
+    margin: 0;
+}
+
+/**
+ 列表项中的段落不缩进
+ */
+li p {
+    text-indent: 0;
+}
+
+ul, ol {
+    padding-left: 1.5em;
+}
+
+dt {
+    font-weight: bold;
+    font-style:italic;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+dd {
+    margin: 0;
+    margin-left: 2em;
+    padding-top: 0;
+}
+
+/**
+ 词条释义段落不缩进
+ */
+dd > p {
+    text-indent: 0;
+}
+
+li p:first-child, dd p:first-child {
+    padding: 0em;
+    margin-top: .3em;
+}
+
+ul li p:first-child {
+    margin: 0em;
+}
+
+/**
+代码
+ */
+pre {
+    display: block;
+    background-color: #f9f3b0;
+    color: #333;
+    overflow: auto;
+    padding: 10px 20px;
+}
+
+code {
+    white-space: nowrap;
+}
+
+
+

@@ -26,14 +26,19 @@
 		<title>测试用章</title>
 	<!-- 章节与正文  -->
 	<xi:include href="section.xml" ></xi:include>
-	<xi:include href="section.xml" ></xi:include>
-	<!-- 表格  -->
-	<xi:include href="table.xml" ></xi:include>
-	<!-- 图片  -->
-	<xi:include href="picture.xml" ></xi:include>
-	<!-- 贴士  -->
-	<xi:include href="tip.xml" ></xi:include>
-	<!-- 代码与代码高亮  -->
-	<xi:include href="program.xml" ></xi:include>
+	</chapter>
+
+	<chapter>
+		<title>测试用章</title>
+		<!-- 列表项  -->
+		<xi:include href="list.xml" ></xi:include>
+		<!-- 表格  -->
+		<xi:include href="table.xml" ></xi:include>
+		<!-- 图片  -->
+		<xi:include href="picture.xml" ></xi:include>
+		<!-- 贴士  -->
+		<xi:include href="tip.xml" ></xi:include>
+		<!-- 代码与代码高亮  -->
+		<xi:include href="program.xml" ></xi:include>
 	</chapter>
 </book>

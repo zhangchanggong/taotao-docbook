@@ -1,9 +1,14 @@
 /**
 标题页相关的样式
  */
-.article>.titlepage .title,.article>.titlepage .subtitle,.article>.titlepage .author{
+.article>.titlepage .title,
+.article>.titlepage .subtitle,
+.article>.titlepage .author,
+.book>.titlepage .title,
+.book>.titlepage .subtitle,
+.book>.titlepage .author{
     text-align: center;
 }
-.titlepage em{
+.article>.titlepage em{
     font-style: normal;
 }

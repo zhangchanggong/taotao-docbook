@@ -1,42 +1,48 @@
-/* Lists */
-ol li, ul li {
-    padding-left: .2em;
-    padding-bottom: .5em;
-    margin: 0em;
+/**
+目录
+*/
+/**
+    目录标题不缩进
+ */
+.toc > p,
+.list-of-figures > p,
+.list-of-tables > p{
+    text-indent: 0;
+    text-align: center;
 }
 
-ul {
-    padding-left: 1.6em;
-    list-style-type: circle;
+/**
+目录整体悬挂两个字符
+ */
+div.toc,div.list-of-figures,div.list-of-tables {
+    padding-left: 2em;
 }
 
-ul ul {
-    list-style-type: circle;
-}
 
-dt {
-    font-weight: bold;
-    margin-bottom: 0em;
-    padding-bottom: 0em;
-}
 
-dd {
-    margin: 0em;
-    margin-left: 2em;
-    padding-top: 0em;
-}
-
-li p:first-child, dd p:first-child {
-    padding: 0em;
-    margin-top: .3em;
-}
-
+/*
+列表
+*/
 .variablelist, .itemizedlist {
     margin-top: .6em;
 }
 
-ul li p:first-child {
-    margin: 0em;
+/**
+    节下（正文中）的列表悬挂两个字符,只有首层列表悬挂 2 字符
+ */
+.section > div.itemizedlist,
+.section > div.variablelist,
+.section > div.orderedlist {
+    padding-left: 2em;
+}
+
+/**
+    列表 title 首行不缩进
+ */
+.itemizedlist > p.title,
+.variablelist > p.title,
+.orderedlist > p.title {
+    text-indent: 0;
 }
 
 /* Images */
@@ -76,13 +82,6 @@ span.co {
     text-align: center;
 }
 
-dt a {
-    font-weight: normal;
-}
-
-p {
-    text-indent: 2em;
-}
 
 .longdesc-link {
     display: none;
@@ -105,7 +104,7 @@ p {
     margin: 0em;
 }
 
-pre, code, .guibutton, .keycap, .guilabel {
+.guibutton, .keycap, .guilabel {
     font-size: 0.9em;
     font-family: courrier, monospace;
 }
@@ -140,17 +139,6 @@ pre, code, .guibutton, .keycap, .guilabel {
     color: #555;
 }
 
-pre {
-    display: block;
-    background-color: #f9f3b0;
-    color: #333;
-    overflow: auto;
-    padding: 10px 20px;
-}
-
-code {
-    white-space: nowrap;
-}
 
 /* Admonitions */
 
@@ -243,7 +231,8 @@ div.warning pre {
 
 /* Background images and margin */
 div.note, div.tip, div.important, div.caution, div.warning {
-    margin-top: .5em;
+    margin-top: 0.5em;
+    border-radius: 0.5em;
 }
 
 div.note .replaceable, div.tip .replaceable, div.important .replaceable, div.caution .replaceable, div.warning .replaceable {
@@ -283,11 +272,11 @@ div.note .guilabel, div.tip .guilabel, div.important .guilabel, div.caution .gui
     color: white !important;
 }
 
-div.note table, div.tip table, div.important table, div.caution table, div.warning table{
+div.note table, div.tip table, div.important table, div.caution table, div.warning table {
     border-width: 0;
 }
 
-div.note th, div.tip th, div.important th, div.caution th, div.warning th{
+div.note th, div.tip th, div.important th, div.caution th, div.warning th {
     background-color: transparent;
 }
 
@@ -422,14 +411,6 @@ td.tname {
     font-size: 1.1em;
 }
 
-h5 {
-    font-size: 9pt;
-}
-
-h6 {
-    font-size: 10pt;
-}
-
 th.dbfield {
     width: 120px;
 }
@@ -538,11 +519,6 @@ span.chapter {
 
 table .footnote {
     margin: 1em .5em;
-}
-
-sup {
-    padding: 0em .3em;
-    padding-left: 0em;
 }
 
 .footnote {
