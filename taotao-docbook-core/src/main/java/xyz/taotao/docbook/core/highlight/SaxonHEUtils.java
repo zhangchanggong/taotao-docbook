@@ -57,11 +57,11 @@ public class SaxonHEUtils {
     /**
      * highlight the nodes using a specific interface
      *
-     * @param context
-     * @param hlCode
-     * @param seq
-     * @param configFilename
-     * @return
+     * @param context           上下文
+     * @param hlCode            高亮类型标识，一般是语言
+     * @param seq               标签序列迭代器
+     * @param configFilename    高亮的配置文件
+     * @return                  输出的标签序列迭代器
      */
     public static SequenceIterator highlight(XPathContext context,
                                              String hlCode, SequenceIterator seq, String configFilename) {
