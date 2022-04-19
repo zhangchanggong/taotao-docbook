@@ -107,11 +107,6 @@ public class HtmlJob implements Job<HtmlJob.HtmlContext> {
     @Setter
     @Getter
     public static class HtmlContext extends JobContext {
-        /**
-         * html 子文件夹
-         */
-        private String htmlDir = HTML_DIR;
-
         @Override
         public String toString() {
             return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);

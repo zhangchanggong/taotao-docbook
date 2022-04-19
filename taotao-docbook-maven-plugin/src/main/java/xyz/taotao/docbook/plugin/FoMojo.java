@@ -63,7 +63,7 @@ public class FoMojo extends AbstractDocBookMojo{
             log.info("-------------------- xsl-fo 转换结束----------------------");
         } catch (TaotaoDocbookException e) {
             log.info("-------------------- xsl-fo 转换失败----------------------",e);
-            throw new RuntimeException(e);
+            throw new MojoFailureException(e);
         }
 
     }
