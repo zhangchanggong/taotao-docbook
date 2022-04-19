@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2022 王金涛。
+ * This file is part of taotao-docbook.
+ *
+ * taotao-docbook is free software: you can redistribute it and/or modify it under the terms of the
+ * GNU Lesser Public License as published by the Free Software Foundation, either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * taotao-docbook is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ * PURPOSE. See the GNU Lesser Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser Public License along with taotao-docbook. If
+ * not, see <https://www.gnu.org/licenses/>.
+ */
+
 package xyz.taotao.docbook.core.job;
 
 import lombok.Getter;
@@ -11,10 +27,11 @@ import xyz.taotao.docbook.core.docbook.SingleOutputProcessor;
 import xyz.taotao.docbook.core.postprocessor.FopPostProcessor;
 import xyz.taotao.docbook.core.preprocessor.CleanPreProcessor;
 import xyz.taotao.docbook.core.preprocessor.ResourceProcessor;
-import static xyz.taotao.docbook.core.TaotaoDocbookConstant.*;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static xyz.taotao.docbook.core.TaotaoDocbookConstant.*;
 
 /**
  * 基于 xsl-fo 的

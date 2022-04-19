@@ -1,3 +1,19 @@
+/*
+ * Copyright © 2022 王金涛。
+ * This file is part of taotao-docbook.
+ *
+ * taotao-docbook is free software: you can redistribute it and/or modify it under the terms of the
+ * GNU Lesser Public License as published by the Free Software Foundation, either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * taotao-docbook is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ * PURPOSE. See the GNU Lesser Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser Public License along with taotao-docbook. If
+ * not, see <https://www.gnu.org/licenses/>.
+ */
+
 package xyz.taotao.docbook.core.highlight;
 
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +26,6 @@ import net.sf.saxon.s9api.Location;
 import net.sf.saxon.str.StringTool;
 import net.sf.saxon.tree.iter.AxisIterator;
 import net.sf.saxon.tree.iter.ListIterator;
-import net.sf.saxon.tree.iter.NodeListIterator;
 import net.sf.saxon.type.AnyType;
 import net.sf.saxon.type.Type;
 import net.sf.xslthl.Block;
@@ -18,8 +33,6 @@ import net.sf.xslthl.Config;
 import net.sf.xslthl.MainHighlighter;
 import net.sf.xslthl.StyledBlock;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
