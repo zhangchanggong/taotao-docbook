@@ -27,7 +27,7 @@ import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
-class HtmlJobTest {
+class HtmlJobTest extends ClearAndResourceJobTest {
     @Test
     void process() throws FileSystemException {
         FileObject pwdFile = VFSUtils.getResource(new File(".").getAbsolutePath(), null);

@@ -39,11 +39,6 @@ import static xyz.taotao.docbook.core.TaotaoDocbookConstant.*;
 @Slf4j
 public class HtmlJob implements Job<HtmlJob.HtmlContext> {
 
-    private PreProcessor<?>[] preProcessors = new PreProcessor[]{
-            new CleanPreProcessor(),
-            new ResourceProcessor()
-    };
-
     private DocbookProcessor<?> docbookProcessor = new SingleOutputProcessor();
 
     private PostProcessor<?>[] postProcessors = new PostProcessor[]{
@@ -54,10 +49,6 @@ public class HtmlJob implements Job<HtmlJob.HtmlContext> {
     public void process(HtmlContext jobContext) throws TaotaoDocbookException {
         log.info("-------------------- HtmlJob 处理开始 --------------------");
         initContext(jobContext);
-
-        for (PreProcessor<?> processor : preProcessors) {
-            processor.process(jobContext.getPreProcessorConfigs().get(processor.getConfigKey()));
-        }
         docbookProcessor.process(jobContext.getDocbookProcessorConfig());
         for (PostProcessor<?> processor : postProcessors) {
             processor.process(jobContext.getPostProcessorConfigs().get(processor.getConfigKey()));
@@ -67,23 +58,15 @@ public class HtmlJob implements Job<HtmlJob.HtmlContext> {
     }
 
     private void initContext(HtmlContext jobContext) {
-        jobContext.setPreProcessorConfigs(new HashMap<>());
         jobContext.setPostProcessorConfigs(new HashMap<>());
-
-        initCleanConfig(jobContext);
-        initResourceConfig(jobContext);
-
         initProcessorConfig(jobContext);
-
         initMergeConfig(jobContext);
-
     }
 
     private void initMergeConfig(HtmlContext jobContext) {
         MergeProcessor.MergeConfig config = new MergeProcessor.MergeConfig();
         config.setDescPath(jobContext.getDescDir());
         config.setSourcePaths(new String[]{StringUtils.joinWith("/", jobContext.getWorkDir(), STAGING_DIR,RESOURCE_DIR)});
-
         jobContext.getPostProcessorConfigs().put(MergeProcessor.class.getCanonicalName(), config);
     }
 
@@ -103,22 +86,6 @@ public class HtmlJob implements Job<HtmlJob.HtmlContext> {
 
     }
 
-    private void initResourceConfig(HtmlContext jobContext) {
-        ResourceProcessor.ResourceConfig config = new ResourceProcessor.ResourceConfig();
-        config.setBaseDir(StringUtils.joinWith("/", jobContext.getWorkDir(), STAGING_DIR));
-        Map<String, String[]> copyPair = new HashMap<>(3);
-        copyPair.put(RESOURCE_DIR, jobContext.getResourcePaths());
-        copyPair.put(FONTS_DIR, jobContext.getFontPaths());
-        copyPair.put(DOCX_DIR, jobContext.getDocxPaths());
-        config.setCopyPair(copyPair);
-        jobContext.getPreProcessorConfigs().put(ResourceProcessor.class.getCanonicalName(), config);
-    }
-
-    private void initCleanConfig(HtmlContext jobContext) {
-        CleanPreProcessor.CleanConfig config = new CleanPreProcessor.CleanConfig();
-        config.setCleanDir(new String[]{jobContext.getWorkDir()});
-        jobContext.getPreProcessorConfigs().put(CleanPreProcessor.class.getCanonicalName(), config);
-    }
 
     @Setter
     @Getter

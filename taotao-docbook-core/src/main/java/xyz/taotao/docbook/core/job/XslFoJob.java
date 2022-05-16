@@ -39,10 +39,6 @@ import static xyz.taotao.docbook.core.TaotaoDocbookConstant.*;
 @Slf4j
 public class XslFoJob implements Job<XslFoJob.XslFoJobContext> {
 
-    private PreProcessor<?>[] preProcessors=new PreProcessor[]{
-            new CleanPreProcessor(),
-            new ResourceProcessor()
-    };
 
     private DocbookProcessor<?> docbookProcessor=new SingleOutputProcessor();
 
@@ -55,9 +51,6 @@ public class XslFoJob implements Job<XslFoJob.XslFoJobContext> {
         log.info("-------------------- XslFoJob 处理开始 --------------------");
         initContext(jobContext);
 
-        for (PreProcessor<?> processor:preProcessors){
-            processor.process(jobContext.getPreProcessorConfigs().get(processor.getConfigKey()));
-        }
         docbookProcessor.process(jobContext.getDocbookProcessorConfig());
         for (PostProcessor<?> processor:postProcessors){
             processor.process(jobContext.getPostProcessorConfigs().get(processor.getConfigKey()));
@@ -70,8 +63,6 @@ public class XslFoJob implements Job<XslFoJob.XslFoJobContext> {
         jobContext.setPreProcessorConfigs(new HashMap<>());
         jobContext.setPostProcessorConfigs(new HashMap<>());
 
-        initCleanConfig(jobContext);
-        initResourceConfig(jobContext);
 
         initProcessorConfig(jobContext);
 
@@ -109,23 +100,6 @@ public class XslFoJob implements Job<XslFoJob.XslFoJobContext> {
 
         jobContext.setDocbookProcessorConfig(config);
 
-    }
-
-    private void initResourceConfig(XslFoJobContext jobContext) {
-        ResourceProcessor.ResourceConfig config=new ResourceProcessor.ResourceConfig();
-        config.setBaseDir(StringUtils.joinWith("/",jobContext.getWorkDir(),STAGING_DIR));
-        Map<String,String[]> copyPair=new HashMap<>(3);
-        copyPair.put(RESOURCE_DIR,jobContext.getResourcePaths());
-        copyPair.put(FONTS_DIR,jobContext.getFontPaths());
-        copyPair.put(DOCX_DIR,jobContext.getDocxPaths());
-        config.setCopyPair(copyPair);
-        jobContext.getPreProcessorConfigs().put(ResourceProcessor.class.getCanonicalName(),config);
-    }
-
-    private void initCleanConfig(XslFoJobContext jobContext) {
-        CleanPreProcessor.CleanConfig config=new CleanPreProcessor.CleanConfig();
-        config.setCleanDir(new String[]{jobContext.getWorkDir()});
-        jobContext.getPreProcessorConfigs().put(CleanPreProcessor.class.getCanonicalName(),config);
     }
 
     /**

@@ -29,7 +29,7 @@ import java.io.File;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
-class XslFoJobTest {
+class XslFoJobTest extends ClearAndResourceJobTest {
     @Test
     void process() throws FileSystemException {
         FileObject pwdFile = VFSUtils.getResource(new File(".").getAbsolutePath(), null);
@@ -53,6 +53,7 @@ class XslFoJobTest {
         context.setXsltFile("fo.xsl");
         context.setMimeType(MimeConstants.MIME_PDF);
         context.setFopConfigPath("classpath://META-INF/fop-config.xml");
+
 
         XslFoJob job = new XslFoJob();
         assertDoesNotThrow(() ->
