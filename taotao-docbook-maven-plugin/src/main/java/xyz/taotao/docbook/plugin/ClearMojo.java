@@ -19,7 +19,6 @@ package xyz.taotao.docbook.plugin;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import xyz.taotao.docbook.core.TaotaoDocbookException;
@@ -29,7 +28,6 @@ import xyz.taotao.docbook.core.job.ClearJob;
  *  环境清理 Mojo
  */
 @Mojo(name = "clear",defaultPhase = LifecyclePhase.CLEAN)
-@Execute(goal = "clean")
 @Slf4j
 public class ClearMojo extends AbstractDocBookMojo{
     @Override
