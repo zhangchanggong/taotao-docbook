@@ -19,6 +19,7 @@ package xyz.taotao.docbook.plugin;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import xyz.taotao.docbook.core.TaotaoDocbookException;
@@ -27,7 +28,8 @@ import xyz.taotao.docbook.core.job.ResourceJob;
 /**
  *  复制资源的 Mojo
  */
-@Mojo(name = "resourceCopy",defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
+@Mojo(name = "resourceCopy",defaultPhase = LifecyclePhase.POST_CLEAN)
+@Execute(goal = "resourceCopy",phase = LifecyclePhase.POST_CLEAN )
 @Slf4j
 public class ResourceMojo extends AbstractDocBookMojo{
     @Override

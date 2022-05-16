@@ -22,11 +22,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
 import xyz.taotao.docbook.core.*;
 import xyz.taotao.docbook.core.docbook.SingleOutputProcessor;
 import xyz.taotao.docbook.core.postprocessor.MergeProcessor;
 import xyz.taotao.docbook.core.preprocessor.CleanPreProcessor;
 import xyz.taotao.docbook.core.preprocessor.ResourceProcessor;
+import xyz.taotao.docbook.core.util.VFSUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,7 +68,13 @@ public class HtmlJob implements Job<HtmlJob.HtmlContext> {
 
     private void initMergeConfig(HtmlContext jobContext) {
         MergeProcessor.MergeConfig config = new MergeProcessor.MergeConfig();
-        config.setDescPath(jobContext.getDescDir());
+        try {
+            FileObject descFile = VFSUtils.getResource(jobContext.getDescFile(), jobContext.getDescDir());
+            config.setDescPath(descFile.getParent().getPublicURIString());
+        } catch (FileSystemException e) {
+            log.warn("获取目标地址出错",e);
+            throw new RuntimeException(e);
+        }
         config.setSourcePaths(new String[]{StringUtils.joinWith("/", jobContext.getWorkDir(), STAGING_DIR,RESOURCE_DIR)});
         jobContext.getPostProcessorConfigs().put(MergeProcessor.class.getCanonicalName(), config);
     }

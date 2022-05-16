@@ -54,7 +54,7 @@ public abstract class AbstractDocBookMojo extends AbstractMojo {
     /**
      * 目标文件文件名
      */
-    @Parameter(name = "descFile", required = true)
+    @Parameter(name = "descFile", required = false)
     protected String descFile;
     /**
      * 输出的参考语言,格式为 ll-CC
@@ -93,7 +93,7 @@ public abstract class AbstractDocBookMojo extends AbstractMojo {
      * xslt 首文件所在的路径
      * vfs 格式
      */
-    @Parameter(name = "xsltFile", required = true)
+    @Parameter(name = "xsltFile", required = false)
     protected String xsltFile;
 
 }
