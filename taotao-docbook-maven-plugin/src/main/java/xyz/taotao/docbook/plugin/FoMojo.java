@@ -20,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.fop.apps.MimeConstants;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import xyz.taotao.docbook.core.TaotaoDocbookException;
@@ -28,7 +29,7 @@ import xyz.taotao.docbook.core.job.XslFoJob;
 /**
  * 基于 xsl-fo 的实现
  */
-@Mojo(name = "fo")
+@Mojo(name = "fo",defaultPhase = LifecyclePhase.PACKAGE)
 @Slf4j
 public class FoMojo extends AbstractDocBookMojo{
     /**

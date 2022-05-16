@@ -19,6 +19,7 @@ package xyz.taotao.docbook.plugin;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import xyz.taotao.docbook.core.TaotaoDocbookException;
 import xyz.taotao.docbook.core.job.HtmlJob;
@@ -26,7 +27,7 @@ import xyz.taotao.docbook.core.job.HtmlJob;
 /**
  * html 生成的 实现
  */
-@Mojo(name = "html")
+@Mojo(name = "html",defaultPhase = LifecyclePhase.PACKAGE)
 @Slf4j
 public class HtmlMojo extends AbstractDocBookMojo{
     @Override
