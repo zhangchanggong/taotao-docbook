@@ -38,7 +38,6 @@ public class MergeProcessor extends ClassNameConfigKeyProcesser<MergeProcessor.M
             }else{
                 FileUtils.forceMkdir
                         (descDir.getPath().toFile());
-                ;
             }
         } catch (FileSystemException e) {
             log.warn("获取目标文件夹失败,descPath=[{}]",config.descPath,e);
