@@ -170,7 +170,11 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+    <scm>
+        <connection>qq 交流群：694344702</connection>
+        <developerConnection>zhangchanggong@163.com</developerConnection>
+        <url>https://gitee.com/qq353586539/taotao-docbook.git</url>
+    </scm>
     <build>
         <plugins>
             <plugin>
