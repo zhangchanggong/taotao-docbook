@@ -25,14 +25,14 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
 import store.taotao.docbook.core.*;
-import xyz.taotao.docbook.core.*;
 import store.taotao.docbook.core.docbook.SingleOutputProcessor;
 import store.taotao.docbook.core.postprocessor.MergeProcessor;
 import store.taotao.docbook.core.util.VFSUtils;
 
 import java.util.HashMap;
 
-import static store.taotao.docbook.core.TaotaoDocbookConstant.*;
+import static store.taotao.docbook.core.TaotaoDocbookConstant.RESOURCE_DIR;
+import static store.taotao.docbook.core.TaotaoDocbookConstant.STAGING_DIR;
 
 /**
  * html 处理类的处理过程

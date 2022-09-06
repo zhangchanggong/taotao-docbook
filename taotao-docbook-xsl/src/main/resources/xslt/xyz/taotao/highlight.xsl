@@ -23,7 +23,7 @@
 
 
     <!-- for saxonHE 11.2  -->
-<!--    <saxon:script implements-prefix="s9hl" language="java" src="java:xyz.taotao.docbook.highlight.ConnectorSaxonHE" />-->
+<!--    <saxon:script implements-prefix="s9hl" language="java" src="java:store.taotao.docbook.highlight.ConnectorSaxonHE" />-->
 
 
     <xsl:template name="apply-highlighting">
@@ -50,7 +50,7 @@
 <!--                            </xsl:otherwise>-->
 <!--                        </xsl:choose>-->
 <!--                        <xsl:apply-templates select="xslthl:highlight($language, exsl:node-set($content), $highlight.xslthl.config)"-->
-<!--                            xmlns:xslthl="java:xyz.taotao.docbook.highlight.ConnectorSaxonHE"/>-->
+                        <!--                            xmlns:xslthl="java:store.taotao.docbook.highlight.ConnectorSaxonHE"/>-->
 
                         <xsl:apply-templates
                                 select="hl:highlight($language, exsl:node-set($content), $highlight.xslthl.config)" mode="xslthl"/>

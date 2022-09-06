@@ -19,11 +19,9 @@ package store.taotao.docbook.plugin;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import xyz.taotao.docbook.core.TaotaoDocbookConstant;
+import store.taotao.docbook.core.TaotaoDocbookConstant;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 

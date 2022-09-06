@@ -114,13 +114,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>xyz.taotao.docbook</groupId>
+            <groupId>store.taotao.docbook</groupId>
             <artifactId>taotao-docbook-xsl</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>xyz.taotao.docbook</groupId>
+            <groupId>store.taotao.docbook</groupId>
             <artifactId>taotao-docbook-style</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>

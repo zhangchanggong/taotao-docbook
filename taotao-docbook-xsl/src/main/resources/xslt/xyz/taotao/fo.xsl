@@ -1002,7 +1002,7 @@
 			<xsl:when
 					test="$confidential = 1 and (($sequence='odd' and $position='left') or ($sequence='even' and $position='right'))">
 				<fo:inline keep-together.within-line="always" font-weight="bold">
-					<xsl:text>XYZ.TAOTAO CONFIDENTIAL</xsl:text>
+					<xsl:text>STORE.TAOTAO CONFIDENTIAL</xsl:text>
 				</fo:inline>
 			</xsl:when>
 			<xsl:when test="$sequence = 'blank'">

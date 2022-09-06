@@ -23,8 +23,8 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import xyz.taotao.docbook.core.TaotaoDocbookException;
-import xyz.taotao.docbook.core.job.XslFoJob;
+import store.taotao.docbook.core.TaotaoDocbookException;
+import store.taotao.docbook.core.job.XslFoJob;
 
 /**
  * 基于 xsl-fo 的实现

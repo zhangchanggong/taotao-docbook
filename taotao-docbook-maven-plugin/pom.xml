@@ -27,17 +27,17 @@
     <description>taotao 的 docbook 插件</description>
     <dependencies>
         <dependency>
-            <groupId>xyz.taotao.docbook</groupId>
+            <groupId>store.taotao.docbook</groupId>
             <artifactId>taotao-docbook-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>xyz.taotao.docbook</groupId>
+            <groupId>store.taotao.docbook</groupId>
             <artifactId>taotao-docbook-xsl</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>xyz.taotao.docbook</groupId>
+            <groupId>store.taotao.docbook</groupId>
             <artifactId>taotao-docbook-style</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
