@@ -22,7 +22,7 @@
 
     <groupId>store.taotao.docbook</groupId>
     <artifactId>taotao-docbook</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-RELEASE</version>
     <modules>
         <module>taotao-docbook-core</module>
         <module>taotao-docbook-xsl</module>
