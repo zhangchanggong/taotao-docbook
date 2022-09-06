@@ -23,6 +23,8 @@
     <groupId>store.taotao.docbook</groupId>
     <artifactId>taotao-docbook</artifactId>
     <version>1.0.0-RELEASE</version>
+    <name>taotao-docbook</name>
+    <description>jdocbook 的升级替代品。</description>
     <modules>
         <module>taotao-docbook-core</module>
         <module>taotao-docbook-xsl</module>
