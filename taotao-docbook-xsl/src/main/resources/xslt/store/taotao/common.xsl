@@ -24,7 +24,6 @@
 -->
 
 <xsl:stylesheet
-        xmlns:d="http://docbook.org/ns/docbook"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         version="1.0">
     <!-- 令图片保持相对路径 -->
