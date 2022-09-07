@@ -17,7 +17,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:exsl="http://exslt.org/common"
-                xmlns:hl="http://docbook.taotao.xyz/saxon-extension"
+                xmlns:hl="http://docbook.taotao.store/saxon-extension"
                 exclude-result-prefixes="exsl"
                 version='1.0'>
 

@@ -34,7 +34,7 @@ import net.sf.saxon.value.SequenceType;
 public class Highlight extends ExtensionFunctionDefinition {
     @Override
     public StructuredQName getFunctionQName() {
-        return new StructuredQName("hl", "http://docbook.taotao.xyz/saxon-extension", "highlight");
+        return new StructuredQName("hl", "http://docbook.taotao.store/saxon-extension", "highlight");
     }
 
     @Override

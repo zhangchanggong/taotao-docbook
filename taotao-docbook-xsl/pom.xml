@@ -5,7 +5,7 @@
     <parent>
         <artifactId>taotao-docbook</artifactId>
         <groupId>store.taotao.docbook</groupId>
-        <version>1.0.0-RELEASE</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -28,7 +28,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Name>xyz::taotao::taotao-docbook::xsl</Bundle-Name>
+                        <Bundle-Name>store::taotao::taotao-docbook::xsl</Bundle-Name>
                     </instructions>
                 </configuration>
             </plugin>

@@ -85,7 +85,7 @@ public abstract class AbstractDocBookMojo extends AbstractMojo {
      * xslt 首文件所在的路径（不包括文件本身）
      * vfs 格式
      */
-    @Parameter(name = "xsltDir", required = true, defaultValue = "classpath://xslt/xyz/taotao")
+    @Parameter(name = "xsltDir", required = true, defaultValue = "classpath://xslt/store/taotao")
     protected String xsltDir;
     /**
      * xslt 首文件所在的路径

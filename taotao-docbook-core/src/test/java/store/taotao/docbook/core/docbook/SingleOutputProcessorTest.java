@@ -21,7 +21,7 @@ import store.taotao.docbook.core.DocbookProcessor;
 
 import java.io.File;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class SingleOutputProcessorTest {
 
@@ -29,7 +29,7 @@ class SingleOutputProcessorTest {
     void process() {
         DocbookProcessor docbookProcessor=new SingleOutputProcessor();
         SingleOutputProcessor.SingleOutputProcessorConfig config=new SingleOutputProcessor.SingleOutputProcessorConfig();
-        config.setXsltDir("classpath://xslt/xyz/taotao");
+        config.setXsltDir("classpath://xslt/store/taotao");
         config.setXsltFile("fo.xsl");
         config.setDocbookDir("classpath://demo/base/zh-CN");
         config.setDocbookFile("demo-docbook-tmpl.xml");

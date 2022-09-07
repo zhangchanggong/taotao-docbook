@@ -25,7 +25,7 @@ import store.taotao.docbook.core.util.VFSUtils;
 
 import java.io.File;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @Slf4j
 class HtmlJobTest extends ClearAndResourceJobTest {
     @Test
@@ -47,7 +47,7 @@ class HtmlJobTest extends ClearAndResourceJobTest {
                 "classpath://demo/style"
         });
         context.setWorkDir(pwdPath + "/target/docbook");
-        context.setXsltDir("classpath://xslt/xyz/taotao");
+        context.setXsltDir("classpath://xslt/store/taotao");
         context.setXsltFile("xhtml.xsl");
 
 

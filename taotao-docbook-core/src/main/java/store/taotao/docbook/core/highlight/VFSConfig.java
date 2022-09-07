@@ -46,7 +46,7 @@ public class VFSConfig extends Config {
     /**
      * Get the default config
      *
-     * @return
+     * @return 默认配置
      */
     public static Config getInstance() {
         return getInstance(null);
@@ -55,8 +55,8 @@ public class VFSConfig extends Config {
     /**
      * Get the config from a given file
      *
-     * @param filename
-     * @return
+     * @param filename 配置文件
+     * @return 指定配置文件的配置
      */
     public static Config getInstance(String filename) {
         String key = (filename == null) ? "" : filename;
