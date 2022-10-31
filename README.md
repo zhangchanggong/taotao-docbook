@@ -4,7 +4,7 @@ title: taotao-docbook
 
 # 简介
 
-由于 jdocbook 已经多年不更新，所以制作了其替代品。总之这是个 jdocbook 的替代品（不是复制），这里最大限度保持与 jdocbook 的兼容，但也很有部分特性进行了变更。整体的构建目标如下：
+由于 jdocbook 已经多年不更新，所以制作了其替代品。总之这是个 jdocbook 的替代品而不是复制品，本项目最大限度保持与 jdocbook 的兼容，但也有部分特性进行了变更。整体的构建目标如下：
 
 1. 定义以 docbook 为核心文档转换流程。
 1. 定义基于 maven 的文档工程结构。
@@ -77,7 +77,7 @@ demo-docbook
 |:---:|:---------:|:-----:|----|
 |  1  |workDir|${basedir}/target/docbook|工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里|
 
-如上所示，`clear` 目标仅于 `workDir` 参数有关，其作用是删除该参数对应的目录下的文件。
+如上所示，`clear` 目标仅与 `workDir` 参数有关，其作用是删除该参数对应的目录下的文件。
 
 直接执行如下命名，可以指定执行该目标：
 
@@ -87,8 +87,35 @@ mvn taotao-docbook:clear
 
 ### goal: resourceCopy
 
+该目标是将各种**资源文件**汇聚到**中间产物目录**下。受文档工程化的影响，资源文件可能来源于不同位置，这就为渲染时资源文件的定位增加了困难。该过程将**资源文件**汇聚，提供单一的定位基址。
 
+1. **资源文件** 是指生成文件前，其本身或内部信息无需人工编辑；生成文件时，其本身或内部信息需进入最终文档的文件，比如图片、字体、样式表、docx 的style 文件等。
+1. **中间产物目录** 及 `workDir` 下的 `staging` 文件夹，在本项目中，其相对位置不予改变，其目录结构也不予改变。
 
+该目标各参数如下：
+
+| 序号 |参数|默认值|作用与说明|
+|:---:|:---------:|:-----:|----|
+|  1 |workDir|${basedir}/target/docbook|工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里|
+|  2 |resourcePaths|(classpath://resource_root,${basedir}/src/main/style)|提供通用资源的路径|
+|  3 |fontPaths|(classpath://fonts,${basedir}/src/main/fonts)|提供字体的路径|
+|  4 |docxPaths|(classpath://docx,${basedir}/src/main/docx)|提供 docx 资源的路径|
+
+经作者努力，使上述配置中的 `resourcePaths`,`fontPaths`,`docxPaths` 都支持 [`commons-vfs2` 的路径](https://commons.apache.org/proper/commons-vfs/filesystems.html)。 其中 `classpath` ,就是 `commons-vfs2` 中的 `RES`.
+
+其目标的本质是将多个文件夹下的文件（包括目录结构）复制到指定文件夹下，复制的对应关系如下：
+
+|序号|源|目标|说明|
+|:---:|:---------:|:-----:|----|
+|1|${resourcePaths}|${workDir}/staging/resource_root|通用资源|
+|2|${fontsPaths}|${workDir}/staging/fonts|fo用字体资源|
+|3|${docxPaths}|${workDir}/staging/docx|docx用 xml 资源|
+
+直接执行如下命名，可以指定执行该目标：
+
+```bash
+mvn taotao-docbook:resourcCopy
+```
 
 
 
