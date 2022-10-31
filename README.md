@@ -114,7 +114,7 @@ mvn taotao-docbook:clear
 直接执行如下命名，可以指定执行该目标：
 
 ```bash
-mvn taotao-docbook:resourcCopy
+mvn taotao-docbook:resourceCopy
 ```
 
 
