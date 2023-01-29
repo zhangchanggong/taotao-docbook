@@ -140,6 +140,9 @@ graph LR;
 > **XSL-FO 文档**
 >
 > XSL-FO是XSL Formatting Objects的缩写，它是一种用于文档格式的XML
-> 置标语言。XSL-FO是XSL的一部分，而XSL是一组定义XML数据转换与格式的W3C技术。XSL的其他部分有XSLT与XPath。截止到2006年12月12日，XSL-FO的最新版本是v1.1
+> 置标语言。XSL-FO是XSL的一部分，而XSL是一组定义XML数据转换与格式的W3C技术。XSL的其他部分有XSLT与XPath。截止到2006年12月12日，XSL-FO的最新版本是v1.1。有时
+> xsl-fo 也被称作 xsl。
+>
+> [xsl-fo:v1.1](https://www.w3.org/TR/xsl11/)
 
 # 设计说明
