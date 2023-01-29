@@ -4,7 +4,8 @@ title: taotao-docbook
 
 # 简介
 
-由于 jdocbook 已经多年不更新，所以制作了其替代品。总之这是个 jdocbook 的替代品而不是复制品，本项目最大限度保持与 jdocbook 的兼容，但也有部分特性进行了变更。整体的构建目标如下：
+由于 jdocbook 已经多年不更新，所以制作了其替代品。总之这是个 jdocbook 的替代品而不是复制品，本项目最大限度保持与 jdocbook
+的兼容，但也有部分特性进行了变更。整体的构建目标如下：
 
 1. 定义以 docbook 为核心文档转换流程。
 1. 定义基于 maven 的文档工程结构。
@@ -15,7 +16,8 @@ title: taotao-docbook
 
 # 用法
 
-在 1.0.1 的实现中给出了前五项的实现。第六项计划在 1.1.0 中实现。本文以 [demo-docbook](https://gitee.com/qq353586539/demo-docbook) 为例说明 maven-plugin 的用法。
+在 1.0.1 的实现中给出了前五项的实现。第六项计划在 1.1.0
+中实现。本文以 [demo-docbook](https://gitee.com/qq353586539/demo-docbook) 为例说明 maven-plugin 的用法。
 
 ## 目录结构
 
@@ -60,22 +62,24 @@ demo-docbook
 
 对应上述三个过程，插件提供了以下 goals ：
 
-|序号|goal|默认 phase|对应过程|说明 |
-|:---:|:---:|:---------:|:-----:|----|
-|1|clear|clean|**清理**||
-|2|resourceCopy|process-resources|**处理资源**||
-|3|fo|package|**生成文档**|基于 xsl-fo 技术生成文档|
-|4|html|package|**生成文档**|生成 html 页面|
+| 序号  |     goal     |     默认 phase      |   对应过程   | 说明               |
+|:---:|:------------:|:-----------------:|:--------:|------------------|
+|  1  |    clear     |       clean       |  **清理**  ||
+|  2  | resourceCopy | process-resources | **处理资源** ||
+|  3  |      fo      |      package      | **生成文档** | 基于 xsl-fo 技术生成文档 |
+|  4  |     html     |      package      | **生成文档** | 生成 html 页面       |
 
-对于 **生成文档** 的 goal ，一般又对应三个子过程： **前置处理、核心处理过程、后置处理** 过程。以 `fo` 为例,其前置处理过程什么也没做，核心处理过程将 `docbook` 文件处理成一个 `fo` 文件,后置处理过程将 `fo` 文件处理成指定格式的目标文件（ **比如 pdf、rtf 等** ）。
+对于 **生成文档** 的 goal ，一般又对应三个子过程： **前置处理、核心处理过程、后置处理** 过程。以 `fo`
+为例,其前置处理过程什么也没做，核心处理过程将 `docbook` 文件处理成一个 `fo` 文件,后置处理过程将 `fo` 文件处理成指定格式的目标文件（
+**比如 pdf、rtf 等** ）。
 
 ### goal: clear
 
 该过程删除 _工作目录_ 中的所有文件。以便于在一个相对干净的环境中生成文档制品。
 
-| 序号  |参数|默认值|作用与说明|
-|:---:|:---------:|:-----:|----|
-|  1  |workDir|${basedir}/target/docbook|工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里|
+| 序号  |   参数    |            默认值            | 作用与说明                          |
+|:---:|:-------:|:-------------------------:|--------------------------------|
+|  1  | workDir | ${basedir}/target/docbook | 工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里 |
 
 如上所示，`clear` 目标仅与 `workDir` 参数有关，其作用是删除该参数对应的目录下的文件。
 
@@ -87,29 +91,33 @@ mvn taotao-docbook:clear
 
 ### goal: resourceCopy
 
-该目标是将各种**资源文件**汇聚到**中间产物目录**下。受文档工程化的影响，资源文件可能来源于不同位置，这就为渲染时资源文件的定位增加了困难。该过程将**资源文件**汇聚，提供单一的定位基址。
+该目标是将各种**资源文件**汇聚到**中间产物目录**下。受文档工程化的影响，资源文件可能来源于不同位置，这就为渲染时资源文件的定位增加了困难。该过程将
+**资源文件**汇聚，提供单一的定位基址。
 
-1. **资源文件** 是指生成文件前，其本身或内部信息无需人工编辑；生成文件时，其本身或内部信息需进入最终文档的文件，比如图片、字体、样式表、docx 的style 文件等。
+1. **资源文件** 是指生成文件前，其本身或内部信息无需人工编辑；生成文件时，其本身或内部信息需进入最终文档的文件，比如图片、字体、样式表、docx
+   的style 文件等。
 1. **中间产物目录** 及 `workDir` 下的 `staging` 文件夹，在本项目中，其相对位置不予改变，其目录结构也不予改变。
 
 该目标各参数如下：
 
-| 序号 |参数|默认值|作用与说明|
-|:---:|:---------:|:-----:|----|
-|  1 |workDir|${basedir}/target/docbook|工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里|
-|  2 |resourcePaths|(classpath://resource_root,${basedir}/src/main/style)|提供通用资源的路径|
-|  3 |fontPaths|(classpath://fonts,${basedir}/src/main/fonts)|提供字体的路径|
-|  4 |docxPaths|(classpath://docx,${basedir}/src/main/docx)|提供 docx 资源的路径|
+| 序号  |      参数       |                          默认值                          | 作用与说明                          |
+|:---:|:-------------:|:-----------------------------------------------------:|--------------------------------|
+|  1  |    workDir    |               ${basedir}/target/docbook               | 工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里 |
+|  2  | resourcePaths | (classpath://resource_root,${basedir}/src/main/style) | 提供通用资源的路径                      |
+|  3  |   fontPaths   |     (classpath://fonts,${basedir}/src/main/fonts)     | 提供字体的路径                        |
+|  4  |   docxPaths   |      (classpath://docx,${basedir}/src/main/docx)      | 提供 docx 资源的路径                  |
 
-经作者努力，使上述配置中的 `resourcePaths`,`fontPaths`,`docxPaths` 都支持 [`commons-vfs2` 的路径](https://commons.apache.org/proper/commons-vfs/filesystems.html)。 其中 `classpath` ,就是 `commons-vfs2` 中的 `RES`.
+经作者努力，使上述配置中的 `resourcePaths`,`fontPaths`,`docxPaths`
+都支持 [`commons-vfs2` 的路径](https://commons.apache.org/proper/commons-vfs/filesystems.html)。 其中 `classpath`
+,就是 `commons-vfs2` 中的 `RES`.
 
 其目标的本质是将多个文件夹下的文件（包括目录结构）复制到指定文件夹下，复制的对应关系如下：
 
-|序号|源|目标|说明|
-|:---:|:---------:|:-----:|----|
-|1|${resourcePaths}|${workDir}/staging/resource_root|通用资源|
-|2|${fontsPaths}|${workDir}/staging/fonts|fo用字体资源|
-|3|${docxPaths}|${workDir}/staging/docx|docx用 xml 资源|
+| 序号  |        源         |                目标                | 说明           |
+|:---:|:----------------:|:--------------------------------:|--------------|
+|  1  | ${resourcePaths} | ${workDir}/staging/resource_root | 通用资源         |
+|  2  |  ${fontsPaths}   |     ${workDir}/staging/fonts     | fo用字体资源      |
+|  3  |   ${docxPaths}   |     ${workDir}/staging/docx      | docx用 xml 资源 |
 
 直接执行如下命名，可以指定执行该目标：
 
@@ -117,7 +125,21 @@ mvn taotao-docbook:clear
 mvn taotao-docbook:resourceCopy
 ```
 
+### goal: fo
 
+该过程主要基于给定的 xslt 将 docbook 文档转换成 xsl:fo 文档，然后根据给定的目标格式，将 fo 文档转换为对应格式（主要是
+pdf ）。
 
+```mermaid
+graph LR;
+    D[docbook]-->F[XSL-FO]-- application/pdf -->R1[PDF];
+    F-- application/rtf -->R2[RTF];
+    F-- application/postscript -->R3[PS];
+```
+
+> **XSL-FO 文档**
+>
+> XSL-FO是XSL Formatting Objects的缩写，它是一种用于文档格式的XML
+> 置标语言。XSL-FO是XSL的一部分，而XSL是一组定义XML数据转换与格式的W3C技术。XSL的其他部分有XSLT与XPath。截止到2006年12月12日，XSL-FO的最新版本是v1.1
 
 # 设计说明
