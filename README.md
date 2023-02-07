@@ -144,4 +144,23 @@ graph LR;
 >
 > [xsl-fo:v1.1](https://www.w3.org/TR/xsl11/)
 
+该目标各参数如下：
+
+| 序号  |        参数        |                          默认值                          | 作用与说明                                                                |
+|:---:|:----------------:|:-----------------------------------------------------:|:---------------------------------------------------------------------|
+|  1  |     workDir      |               ${basedir}/target/docbook               | 工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里                                       |
+|  2  |  resourcePaths   | (classpath://resource_root,${basedir}/src/main/style) | 提供通用资源的路径                                                            |
+|  3  |    fontPaths     |     (classpath://fonts,${basedir}/src/main/fonts)     | 提供字体的路径                                                              |
+|  4  |     xsltDir      |             classpath://xslt/store/taotao             | xslt 首文件所在的路径（不包括文件本身），支持 vfs url 格式                                 |
+|  5  |     xsltFile     |                                                       | xslt 首文件所在的路径，与  xsltDir 共同决定 xslt 首文件位置                             |
+|  6  |     language     |                         zh-CN                         | 输入与输出的参考语言,格式为 ll-CC                                                 |
+|  7  |   docbookFile    |                                                       | docbook 首文件文件名                                                       |
+|  8  |    docbookDir    |              ${basedir}/src/main/docbook              | docbook 首文件所在的路径（不包括文件本身）,默认是工程的 src/main/docbook 目录，与 language 共同作用 |
+|  9  |     descFile     |                                                       | 目标文件文件名，与 descDir 共同作用                                               |
+| 10  |     descDir      |              ${basedir}/src/main/docbook              | 目标文件所在的路径（不包括文件本身）                                                   |
+| 11  | sourceResolution |                          72                           | 源分辨率，单位是 像素（墨点）/英寸                                                   |
+| 12  | targetResolution |                          72                           | 目标分辨率，单位是 像素（墨点）/英寸                                                  |
+| 13  |  fopConfigPath   |          classpath://META-INF/fop-config.xml          | 默认的 fop 配置，包括诸如各种格式的处理方式                                             |
+| 14  |     mimeType     |                    application/pdf                    | 生成目标的 mineType（该参数决定了最终生成的格式）                                        |
+
 # 设计说明
