@@ -19,6 +19,7 @@ package store.taotao.docbook.core.postprocessor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
@@ -34,6 +35,8 @@ import store.taotao.docbook.core.util.XmlUtils;
 
 import javax.xml.transform.*;
 import javax.xml.transform.sax.SAXResult;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * 将 fo 文件转换成指定格式
@@ -55,25 +58,32 @@ public class FopPostProcessor extends ClassNameConfigKeyProcesser<FopPostProcess
         FopFactory fopFactory = builder.build();
         try {
             FileObject output = VFSUtils.getResource(config.outFile, config.outDir);
-            Fop fop = fopFactory.newFop(config.mimeType,output.getContent().getOutputStream());
+            OutputStream out = output.getContent().getOutputStream();
+            Fop fop = fopFactory.newFop(config.mimeType, out);
             TransformerFactory transformerFactory = XmlUtils.getTransformerFactory();
             Transformer transformer = transformerFactory.newTransformer();
-            transformer.setParameter(TaotaoDocbookConstant.L10N_GENTEXT_LANGUAGE,config.language);
+            transformer.setParameter(TaotaoDocbookConstant.L10N_GENTEXT_LANGUAGE, config.language);
             Source source = XmlUtils.getSource(config.foFile, config.foDir);
-            Result result=new SAXResult(fop.getDefaultHandler());
-            transformer.transform(source,result);
+            Result result = new SAXResult(fop.getDefaultHandler());
+            transformer.transform(source, result);
+            out.flush();
+            IOUtils.closeQuietly(out);
+
         } catch (FileSystemException e) {
-            log.warn("vfs 异常,config=[{}]",config,e);
-            throw new TaotaoDocbookException("vfs 异常",e);
+            log.warn("vfs 异常,config=[{}]", config, e);
+            throw new TaotaoDocbookException("vfs 异常", e);
         } catch (FOPException e) {
-            log.warn("fop 异常,config=[{}]",config,e);
-            throw new TaotaoDocbookException("fop 异常",e);
+            log.warn("fop 异常,config=[{}]", config, e);
+            throw new TaotaoDocbookException("fop 异常", e);
         } catch (TransformerConfigurationException e) {
-            log.warn("transformer 配置异常,config=[{}]",config,e);
-            throw new TaotaoDocbookException("transformer 配置异常",e);
+            log.warn("transformer 配置异常,config=[{}]", config, e);
+            throw new TaotaoDocbookException("transformer 配置异常", e);
         } catch (TransformerException e) {
-            log.warn("transformer 转换异常,config=[{}]",config,e);
-            throw new TaotaoDocbookException("transformer 转换异常",e);
+            log.warn("transformer 转换异常,config=[{}]", config, e);
+            throw new TaotaoDocbookException("transformer 转换异常", e);
+        } catch (IOException e) {
+            log.warn("transformer 转换异常,io flush 失败,config=[{}]", config, e);
+            throw new TaotaoDocbookException("transformer 转换异常,io flush 失败", e);
         }
 
 
@@ -101,7 +111,7 @@ public class FopPostProcessor extends ClassNameConfigKeyProcesser<FopPostProcess
         /**
          * 渲染资源子路经
          */
-        private String resourceDir= TaotaoDocbookConstant.RESOURCE_DIR;
+        private String resourceDir = TaotaoDocbookConstant.RESOURCE_DIR;
         /**
          * 输出文件路径
          */
@@ -121,11 +131,11 @@ public class FopPostProcessor extends ClassNameConfigKeyProcesser<FopPostProcess
         /**
          * 源分辨率
          */
-        private float sourceResolution=72f;
+        private float sourceResolution = 72f;
         /**
          * 目标分辨率
          */
-        private float targetResolution=72f;
+        private float targetResolution = 72f;
 
         @Override
         public String toString() {
