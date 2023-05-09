@@ -166,7 +166,6 @@ graph LR;
 如上表，在 `fo` 任务中需要给定 `xsltFile`, `docbookFile`, `descFile` 示例中给出的参数如下：
 
 ```xml
-
 <plugins>
    <plugin>
       <groupId>store.taotao.docbook</groupId>
@@ -201,7 +200,7 @@ graph LR;
 ```
 
 其中这三个参数需要配合对应的 `dir` 参数使用。这里强烈建议大家重写一份 `xsl` 文件，在引用本插件提供的 `xsl`
-基础上更加细致的调节各项参数。示例中生成 `fo` 的 `xsl` 如下：
+基础上更加细致的调节各项参数。示例中生成 `fo` 的 `pdf.xsl` 如下：
 
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
@@ -220,5 +219,15 @@ graph LR;
 
 如上，引入的 `classpath://xslt/store/taotao/fo.xsl` 是本插件提供的规则，修正的参数是为了在生成 `book`
 时，页两侧的边距相同（事实上，生成 `book` 时，页两侧的边距应该是不同的）。
+
+直接执行如下命名，可以指定执行该目标：
+
+```bash
+mvn taotao-docbook:fo
+```
+
+### goal: html
+
+该目标是生成单一的 `html` 文件,一般用于生成站点文档。
 
 # 设计说明
