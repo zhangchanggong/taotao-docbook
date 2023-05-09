@@ -228,6 +228,34 @@ mvn taotao-docbook:fo
 
 ### goal: html
 
-该目标是生成单一的 `html` 文件,一般用于生成站点文档。
+该目标是生成单一的 `html` 文件,一般用于生成站点文档，目前没有开发多文件的计划。
+
+该目标各参数如下：
+
+| 序号 |      参数       |                          默认值                          | 作用与说明                                                                |
+|:--:|:-------------:|:-----------------------------------------------------:|:---------------------------------------------------------------------|
+| 1  |    workDir    |               ${basedir}/target/docbook               | 工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里                                       |
+| 2  | resourcePaths | (classpath://resource_root,${basedir}/src/main/style) | 提供通用资源的路径                                                            |
+| 3  |   fontPaths   |     (classpath://fonts,${basedir}/src/main/fonts)     | 提供字体的路径                                                              |
+| 4  |    xsltDir    |             classpath://xslt/store/taotao             | xslt 首文件所在的路径（不包括文件本身），支持 vfs url 格式                                 |
+| 5  |   xsltFile    |                                                       | xslt 首文件所在的路径，与  xsltDir 共同决定 xslt 首文件位置                             |
+| 6  |   language    |                         zh-CN                         | 输入与输出的参考语言,格式为 ll-CC                                                 |
+| 7  |  docbookFile  |                                                       | docbook 首文件文件名                                                       |
+| 8  |  docbookDir   |              ${basedir}/src/main/docbook              | docbook 首文件所在的路径（不包括文件本身）,默认是工程的 src/main/docbook 目录，与 language 共同作用 |
+| 9  |   descFile    |                                                       | 目标文件文件名，与 descDir 共同作用                                               |
+| 10 |    descDir    |              ${basedir}/src/main/docbook              | 目标文件所在的路径（不包括文件本身）                                                   |
+
+如上表， `html` 目标与 `fo` 目标的参数基本相同，仅少了 4 个 `fo` 专属的参数。同理，这里建议制定工程专属的 `html.xsl` 文件。
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<xsl:stylesheet
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xmlns="http://docbook.org/ns/docbook"
+        version="1.0">
+
+   <xsl:import href="classpath://xslt/store/taotao/xhtml.xsl"/>
+</xsl:stylesheet>
+```
 
 # 设计说明
