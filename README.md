@@ -146,21 +146,79 @@ graph LR;
 
 该目标各参数如下：
 
-| 序号  |        参数        |                          默认值                          | 作用与说明                                                                |
-|:---:|:----------------:|:-----------------------------------------------------:|:---------------------------------------------------------------------|
-|  1  |     workDir      |               ${basedir}/target/docbook               | 工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里                                       |
-|  2  |  resourcePaths   | (classpath://resource_root,${basedir}/src/main/style) | 提供通用资源的路径                                                            |
-|  3  |    fontPaths     |     (classpath://fonts,${basedir}/src/main/fonts)     | 提供字体的路径                                                              |
-|  4  |     xsltDir      |             classpath://xslt/store/taotao             | xslt 首文件所在的路径（不包括文件本身），支持 vfs url 格式                                 |
-|  5  |     xsltFile     |                                                       | xslt 首文件所在的路径，与  xsltDir 共同决定 xslt 首文件位置                             |
-|  6  |     language     |                         zh-CN                         | 输入与输出的参考语言,格式为 ll-CC                                                 |
-|  7  |   docbookFile    |                                                       | docbook 首文件文件名                                                       |
-|  8  |    docbookDir    |              ${basedir}/src/main/docbook              | docbook 首文件所在的路径（不包括文件本身）,默认是工程的 src/main/docbook 目录，与 language 共同作用 |
-|  9  |     descFile     |                                                       | 目标文件文件名，与 descDir 共同作用                                               |
-| 10  |     descDir      |              ${basedir}/src/main/docbook              | 目标文件所在的路径（不包括文件本身）                                                   |
-| 11  | sourceResolution |                          72                           | 源分辨率，单位是 像素（墨点）/英寸                                                   |
-| 12  | targetResolution |                          72                           | 目标分辨率，单位是 像素（墨点）/英寸                                                  |
-| 13  |  fopConfigPath   |          classpath://META-INF/fop-config.xml          | 默认的 fop 配置，包括诸如各种格式的处理方式                                             |
-| 14  |     mimeType     |                    application/pdf                    | 生成目标的 mineType（该参数决定了最终生成的格式）                                        |
+| 序号 |        参数        |                          默认值                          | 作用与说明                                                                |
+|:--:|:----------------:|:-----------------------------------------------------:|:---------------------------------------------------------------------|
+| 1  |     workDir      |               ${basedir}/target/docbook               | 工作目录, 插件工作过程中生成的文件和最终生成的文件都在这里                                       |
+| 2  |  resourcePaths   | (classpath://resource_root,${basedir}/src/main/style) | 提供通用资源的路径                                                            |
+| 3  |    fontPaths     |     (classpath://fonts,${basedir}/src/main/fonts)     | 提供字体的路径                                                              |
+| 4  |     xsltDir      |             classpath://xslt/store/taotao             | xslt 首文件所在的路径（不包括文件本身），支持 vfs url 格式                                 |
+| 5  |     xsltFile     |                                                       | xslt 首文件所在的路径，与  xsltDir 共同决定 xslt 首文件位置                             |
+| 6  |     language     |                         zh-CN                         | 输入与输出的参考语言,格式为 ll-CC                                                 |
+| 7  |   docbookFile    |                                                       | docbook 首文件文件名                                                       |
+| 8  |    docbookDir    |              ${basedir}/src/main/docbook              | docbook 首文件所在的路径（不包括文件本身）,默认是工程的 src/main/docbook 目录，与 language 共同作用 |
+| 9  |     descFile     |                                                       | 目标文件文件名，与 descDir 共同作用                                               |
+| 10 |     descDir      |              ${basedir}/src/main/docbook              | 目标文件所在的路径（不包括文件本身）                                                   |
+| 11 | sourceResolution |                          72                           | 源分辨率，单位是 像素（墨点）/英寸                                                   |
+| 12 | targetResolution |                          72                           | 目标分辨率，单位是 像素（墨点）/英寸                                                  |
+| 13 |  fopConfigPath   |          classpath://META-INF/fop-config.xml          | 默认的 fop 配置，包括诸如各种格式的处理方式                                             |
+| 14 |     mimeType     |                    application/pdf                    | 生成目标的 mineType（该参数决定了最终生成的格式）                                        |
+
+如上表，在 `fo` 任务中需要给定 `xsltFile`, `docbookFile`, `descFile` 示例中给出的参数如下：
+
+```xml
+
+<plugins>
+   <plugin>
+      <groupId>store.taotao.docbook</groupId>
+      <artifactId>taotao-docbook-maven-plugin</artifactId>
+      <configuration>
+         <docbookFile>demo-docbook.xml</docbookFile>
+         <xsltDir>${basedir}/src/main/xslt</xsltDir>
+         <resourcePaths>
+            <resourcePath>classpath://resource_root</resourcePath>
+            <resourcePath>${basedir}/src/main/style</resourcePath>
+         </resourcePaths>
+      </configuration>
+      <executions>
+         ...
+         <execution>
+            <id>generate_fo</id>
+            <goals>
+               <goal>fo</goal>
+            </goals>
+            <configuration>
+               <sourceResolution>144</sourceResolution>
+               <targetResolution>144</targetResolution>
+               <xsltFile>pdf.xsl</xsltFile>
+               <descFile>pdf/${project.artifactId}-${project.version}.pdf</descFile>
+            </configuration>
+         </execution>
+         ...
+      </executions>
+   </plugin>
+   ...
+</plugins>
+```
+
+其中这三个参数需要配合对应的 `dir` 参数使用。这里强烈建议大家重写一份 `xsl` 文件，在引用本插件提供的 `xsl`
+基础上更加细致的调节各项参数。示例中生成 `fo` 的 `xsl` 如下：
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<xsl:stylesheet
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xmlns="http://docbook.org/ns/docbook"
+        version="1.0">
+
+   <xsl:import href="classpath://xslt/store/taotao/fo.xsl"/>
+   <!-- (左装订)非装订侧页宽25毫米 -->
+   <xsl:param name="page.margin.outer">25mm</xsl:param>
+   <!-- (左装订)装订侧页宽25毫米 -->
+   <xsl:param name="page.margin.inner">25mm</xsl:param>
+</xsl:stylesheet>
+```
+
+如上，引入的 `classpath://xslt/store/taotao/fo.xsl` 是本插件提供的规则，修正的参数是为了在生成 `book`
+时，页两侧的边距相同（事实上，生成 `book` 时，页两侧的边距应该是不同的）。
 
 # 设计说明
