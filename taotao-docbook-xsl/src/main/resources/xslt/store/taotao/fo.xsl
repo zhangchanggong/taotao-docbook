@@ -488,21 +488,27 @@
 	<!-- 标题页样式 -->
 	<xsl:attribute-set name="book.titlepage.recto.style">
 		<xsl:attribute name="font-family">
-			<xsl:value-of select="$title.fontset" />
+			<xsl:value-of select="$title.fontset"/>
 		</xsl:attribute>
-		<xsl:attribute name="color"><xsl:value-of select="$titlepage.color" /></xsl:attribute>
+		<xsl:attribute name="color">
+			<xsl:value-of select="$titlepage.color"/>
+		</xsl:attribute>
 		<xsl:attribute name="font-weight">bold</xsl:attribute>
 		<xsl:attribute name="font-size">12pt</xsl:attribute>
 		<xsl:attribute name="text-align">center</xsl:attribute>
 	</xsl:attribute-set>
+	<!-- 章节标题样式 -->
+	<xsl:attribute-set name="article.titlepage.recto.style" use-attribute-sets="book.titlepage.recto.style"/>
 	<!-- 章标题页的相关属性 -->
 	<xsl:attribute-set name="chapter.titlepage.recto.style">
-		<xsl:attribute name="color"><xsl:value-of select="$chapter.title.color" /></xsl:attribute>
+		<xsl:attribute name="color">
+			<xsl:value-of select="$chapter.title.color"/>
+		</xsl:attribute>
 		<xsl:attribute name="background-color">white</xsl:attribute>
 		<xsl:attribute name="font-size">
 			<xsl:choose>
 				<xsl:when test="$l10n.gentext.language = 'ja-JP'">
-					<xsl:value-of select="$body.font.master * 1.7" />
+					<xsl:value-of select="$body.font.master * 1.7"/>
 					<xsl:text>pt</xsl:text>
 				</xsl:when>
 				<xsl:otherwise>
