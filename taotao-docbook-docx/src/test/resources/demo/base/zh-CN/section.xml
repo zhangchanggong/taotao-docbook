@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2022 王金涛。
+  ~ This file is part of taotao-docbook.
+  ~
+  ~ taotao-docbook is free software: you can redistribute it and/or modify it under the terms of the
+  ~ GNU Lesser General Public License as published by the Free Software Foundation, either
+  ~ version 3 of the License, or (at your option) any later version.
+  ~
+  ~ taotao-docbook is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+  ~ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+  ~ PURPOSE. See the GNU Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public License along with taotao-docbook. If
+  ~ not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<section
+        xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="zh_CN">
+    <title>章节</title>
+    <para>这是自然段，上面是章节的标题。这是一篇article，所以只包含节（section）不包含章（charper）。这是顶层的节
+    </para>
+    <section>
+        <title>第一小节，第一节</title>
+        <para>正文</para>
+        <section>
+            <title>第二小节，第一节</title>
+            <para>正文</para>
+            <section>
+                <title>第三小节，第一节</title>
+                <para>正文</para>
+                <section>
+                    <title>第四小节，第一节</title>
+                    <para>正文</para>
+                    <section>
+                        <title>第五小节，第一节</title>
+                        <para>不要太过分，章节不要太深，五层深度已经很疯狂了。不是么？</para>
+                    </section>
+                    <section>
+                        <title>第五小节，第二节</title>
+                        <para>正文</para>
+                    </section>
+                    <section>
+                        <title>第五小节，第三节</title>
+                        <para>正文</para>
+                    </section>
+                </section>
+                <section>
+                    <title>第四小节，第二节</title>
+                    <para>正文</para>
+                </section>
+                <section>
+                    <title>第四小节，第三节</title>
+                    <para>正文</para>
+                </section>
+            </section>
+            <section>
+                <title>第三小节，第二节</title>
+                <para>正文</para>
+            </section>
+            <section>
+                <title>第四小节，第三节</title>
+                <para>正文</para>
+            </section>
+        </section>
+        <section>
+            <title>第二小节，第二节</title>
+            <para>正文</para>
+        </section>
+        <section>
+            <title>第二小节，第三节</title>
+            <para>正文</para>
+        </section>
+    </section>
+    <section>
+        <title>第一小节，第二节</title>
+        <para>正文</para>
+    </section>
+    <section>
+        <title>第一小节，第三节</title>
+        <para>正文</para>
+    </section>
+</section>

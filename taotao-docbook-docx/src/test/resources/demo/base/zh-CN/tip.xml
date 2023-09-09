@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2022 王金涛。
+  ~ This file is part of taotao-docbook.
+  ~
+  ~ taotao-docbook is free software: you can redistribute it and/or modify it under the terms of the
+  ~ GNU Lesser General Public License as published by the Free Software Foundation, either
+  ~ version 3 of the License, or (at your option) any later version.
+  ~
+  ~ taotao-docbook is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+  ~ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+  ~ PURPOSE. See the GNU Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public License along with taotao-docbook. If
+  ~ not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<section
+        xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="zh_CN">
+    <title>贴士，TIP</title>
+    <para>
+        一般的tip效果，用于处理“节外生枝”的描述。这个东西看起来很炫，但是对程序员而言用起来挺困难的。当然下面的名字翻译地不准确是一个方面。但重要的是很难对一些信息进行分类。
+    </para>
+    <section>
+        <title>注意</title>
+        <tip>
+            <title>注意</title>
+            <para>各种注意事项</para>
+        </tip>
+    </section>
+    <section>
+        <title>提示</title>
+        <note>
+            <title>提示</title>
+            <para>各种提示事项</para>
+        </note>
+    </section>
+    <section>
+        <title>警告</title>
+        <warning>
+            <title>警告</title>
+            <para>各种警告事项</para>
+        </warning>
+    </section>
+    <section>
+        <title>要点</title>
+        <caution>
+            <title>要点</title>
+            <para>各种要点事项</para>
+        </caution>
+    </section>
+    <section>
+        <title>重要</title>
+        <important>
+            <title>重要</title>
+            <para>各种重要事项</para>
+        </important>
+    </section>
+</section>
