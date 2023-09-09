@@ -2,3 +2,4 @@
 /taotao-docbook-core/.asciidoctor/
 /**/target/
 /target/
+/**/*.iml
