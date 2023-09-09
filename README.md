@@ -262,6 +262,6 @@ mvn taotao-docbook:fo
 
 目前支持 QQ 聊天群和项目网站提 issue
 
-[gitee](https://gitee.com/qq353586539/taotao-docbook)
-[github](https://github.com/zhangchanggong/taotao-docbook)
-[点击链接加入群聊【docbook 交流群】](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=DSVvCyvhNbLIlmES2x8DD0SDw6M8vWDs&authKey=U6Bl3Cl%2BAs1F9Ec5LEBrY94XZlWZPPozvw0S32wCBq3%2FPUjsjOeJMpKO8ERPh5za&noverify=0&group_code=694344702)
+* [gitee](https://gitee.com/qq353586539/taotao-docbook)
+* [github](https://github.com/zhangchanggong/taotao-docbook)
+* [点击链接加入群聊【docbook 交流群】](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=DSVvCyvhNbLIlmES2x8DD0SDw6M8vWDs&authKey=U6Bl3Cl%2BAs1F9Ec5LEBrY94XZlWZPPozvw0S32wCBq3%2FPUjsjOeJMpKO8ERPh5za&noverify=0&group_code=694344702)
