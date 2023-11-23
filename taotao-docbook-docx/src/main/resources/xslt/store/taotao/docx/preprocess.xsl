@@ -21,11 +21,22 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0"
                 exclude-result-prefixes="xsl">
-    <xsl:template match="/">
-        <xsl:message>
-            <xsl:text>文档</xsl:text>
-            <xsl:value-of select="."/>
-        </xsl:message>
+    <xsl:output method="xml" version="1.0"
+                encoding="UTF-8" indent="yes" cdata-section-elements="RawData"/>
+
+    <xsl:template match="node()|@*">
+        <xsl:copy>
+            <xsl:apply-templates select="node()|@*"/>
+        </xsl:copy>
     </xsl:template>
+    <!--    <xsl:template match="@*">-->
+    <!--        <xsl:message>-->
+    <!--            <xsl:value-of select="."/>-->
+    <!--        </xsl:message>-->
+    <!--        <xsl:attribute name="{name(.)}" namespace="{namespace-uri(.)}" >-->
+    <!--            <xsl:value-of select="."/>-->
+    <!--        </xsl:attribute>-->
+    <!--    </xsl:template>-->
+
 
 </xsl:stylesheet>

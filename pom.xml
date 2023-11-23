@@ -31,6 +31,7 @@
         <module>taotao-docbook-style</module>
         <module>taotao-docbook-maven-plugin</module>
         <module>taotao-docbook-docx</module>
+        <module>taotao-docbook-schema</module>
     </modules>
     <packaging>pom</packaging>
     <url>https://gitee.com/qq353586539/taotao-docbook</url>

@@ -14,10 +14,13 @@
   ~ You should have received a copy of the GNU Lesser General Public License along with taotao-docbook. If
   ~ not, see <https://www.gnu.org/licenses/>.
   -->
-
 <article xmlns:xi="http://www.w3.org/2001/XInclude"
-         xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="zh_CN">
-    <articleinfo>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://docbook.org/ns/docbook"
+         version="5.0"
+         xml:lang="zh_CN"
+         xsi:schemaLocation="http://docbook.org/ns/docbook https://docbook.org/xml/5.0.1/xsd/docbook.xsd"
+>
+    <info>
         <title>测试用的自由文档</title>
         <subtitle>测试用的自由文档子标题</subtitle>
         <author>
@@ -27,27 +30,27 @@
             <revision>
                 <revnumber>0.0.1</revnumber>
                 <date>2015-01-01</date>
-                <revremark>创建该文档。</revremark>
                 <authorinitials>王金涛</authorinitials>
+                <revremark>创建该文档。</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.2</revnumber>
                 <date>2015-01-02</date>
-                <revremark>修改该文档。</revremark>
                 <authorinitials>王金涛</authorinitials>
+                <revremark>修改该文档。</revremark>
             </revision>
         </revhistory>
-    </articleinfo>
+    </info>
     <!-- 章节与正文  -->
-    <xi:include href="section.xml"></xi:include>
+    <xi:include href="section.xml"/>
     <!-- 列表项  -->
-    <xi:include href="list.xml"></xi:include>
+    <xi:include href="list.xml"/>
     <!-- 表格  -->
-    <xi:include href="table.xml"></xi:include>
+    <xi:include href="table.xml"/>
     <!-- 图片  -->
-    <xi:include href="picture.xml"></xi:include>
+    <xi:include href="picture.xml"/>
     <!-- 贴士  -->
-    <xi:include href="tip.xml"></xi:include>
+    <xi:include href="tip.xml"/>
     <!-- 代码与代码高亮  -->
-    <xi:include href="program.xml"></xi:include>
+    <xi:include href="program.xml"/>
 </article>

@@ -22,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import store.taotao.docbook.core.*;
 import store.taotao.docbook.core.util.XmlUtils;
 
+import javax.xml.transform.ErrorListener;
 import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
@@ -48,6 +49,23 @@ public class SingleOutputProcessor extends ClassNameConfigKeyProcesser<SingleOut
         SingleOutputProcessorConfig theConfig= (SingleOutputProcessorConfig) config;
         Transformer transformer = XmlUtils.getTransformer(config.xsltFile, config.xsltDir);
         transformer.setParameter(TaotaoDocbookConstant.L10N_GENTEXT_LANGUAGE,config.language);
+        transformer.setErrorListener(new ErrorListener() {
+            @Override
+            public void warning(TransformerException exception) throws TransformerException {
+                log.warn("警告", exception);
+            }
+
+            @Override
+            public void error(TransformerException exception) throws TransformerException {
+                log.error("错误", exception);
+
+            }
+
+            @Override
+            public void fatalError(TransformerException exception) throws TransformerException {
+                log.error("失败", exception);
+            }
+        });
         SAXSource srcSource = XmlUtils.getSAXSource(config.docbookFile, config.docbookDir);
         Result descResult = XmlUtils.getResult(config.resultFile, config.resultDir);
         try {

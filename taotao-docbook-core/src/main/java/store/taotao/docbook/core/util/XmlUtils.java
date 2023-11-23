@@ -24,9 +24,9 @@ import org.apache.commons.vfs2.FileSystemException;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
-import store.taotao.docbook.core.highlight.Highlight;
 import store.taotao.docbook.core.TaotaoDocbookException;
 import store.taotao.docbook.core.docbook.VFSURIResolver;
+import store.taotao.docbook.core.highlight.Highlight;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
@@ -137,6 +137,7 @@ public class XmlUtils {
         log.debug("------------------ getSAXSource 开始 -----------------");
         SAXParserFactory saxParserFactory = XmlUtils.getSAXParserFactory();
         saxParserFactory.setXIncludeAware(true);
+        saxParserFactory.setNamespaceAware(true);
         XMLReader xmlReader = null;
         try {
             xmlReader = saxParserFactory.newSAXParser().getXMLReader();
