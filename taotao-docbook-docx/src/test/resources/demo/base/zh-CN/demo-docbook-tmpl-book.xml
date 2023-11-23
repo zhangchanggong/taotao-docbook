@@ -27,14 +27,14 @@
             <revision>
                 <revnumber>0.0.1</revnumber>
                 <date>2015-01-01</date>
-                <revremark>创建该文档。</revremark>
                 <authorinitials>王金涛</authorinitials>
+                <revremark>创建该文档。</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.2</revnumber>
                 <date>2015-01-02</date>
-                <revremark>修改该文档。</revremark>
                 <authorinitials>王金涛</authorinitials>
+                <revremark>修改该文档。</revremark>
             </revision>
         </revhistory>
     </info>
