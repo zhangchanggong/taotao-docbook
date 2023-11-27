@@ -86,7 +86,6 @@
                 <artifactId>docbook-xsl</artifactId>
                 <version>${docbook-xsl.version}</version>
                 <classifier>ns-resources</classifier>
-                <!--                <classifier>resources</classifier>-->
                 <type>zip</type>
             </dependency>
             <dependency>
@@ -174,6 +173,12 @@
                 <artifactId>maven-plugin-annotations</artifactId>
                 <version>${maven-plugin-annotations.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-full</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>
