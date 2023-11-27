@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+    <Relationship Id="ref.xml.document"
+                  Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument"
+                  Target="word/document.xml"/>
+    <Relationship Id="ref.xml.core"
+                  Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties"
+                  Target="docProps/core.xml"/>
+    <Relationship Id="ref.xml.app"
+                  Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties"
+                  Target="docProps/app.xml"/>
+    <Relationship Id="ref.xml.custom"
+                  Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/custom-properties"
+                  Target="docProps/custom.xml"/>
+</Relationships>
