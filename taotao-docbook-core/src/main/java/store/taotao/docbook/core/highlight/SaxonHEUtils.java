@@ -56,7 +56,7 @@ public class SaxonHEUtils {
         Location loc = new Loc(null, 0, 0);
         if (b.isStyled()) {
             FingerprintedQName fpQname = new FingerprintedQName(
-                    config.getPrefix(), config.getUri(), ((StyledBlock) b).getStyle()
+                    config.getPrefix(), NamespaceUri.of(config.getUri()), ((StyledBlock) b).getStyle()
             );
             builder.startElement(fpQname, AnyType.getInstance(), new SmallAttributeMap(Collections.emptyList()), NamespaceMap.emptyMap(), loc, 0);
             builder.characters(StringTool.fromCharSequence(b.getText()), loc, b.getText().length());
@@ -83,14 +83,14 @@ public class SaxonHEUtils {
             Config c = VFSConfig.getInstance(configFilename);
             MainHighlighter hl = c.getMainHighlighter(hlCode);
             int childType = AxisInfo.CHILD;
-            List<Item> resultNodes = new ArrayList<Item>();
-            Item itm = null;
+            List<Item> resultNodes = new ArrayList<>();
+            Item itm;
             while ((itm = seq.next()) != null) {
                 if (itm instanceof NodeInfo) {
                     NodeInfo ni = (NodeInfo) itm;
 
                     SequenceIterator ae = ni.iterateAxis(childType, AnyNodeTest.getInstance());
-                    Item itm2 = null;
+                    Item itm2;
                     while ((itm2 = ae.next()) != null) {
                         if (itm2 instanceof NodeInfo) {
                             NodeInfo n2i = (NodeInfo) itm2;
