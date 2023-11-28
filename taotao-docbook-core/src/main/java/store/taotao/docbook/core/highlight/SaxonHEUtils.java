@@ -110,7 +110,7 @@ public class SaxonHEUtils {
                                     NodeInfo doc = builder.getCurrentRoot();
 
                                     AxisIterator elms =doc.iterateAxis(childType,AnyNodeTest.getInstance());
-                                    Item crt = null;
+                                    Item crt;
                                     while ((crt = elms.next()) != null) {
                                         resultNodes.add(crt);
                                     }
@@ -128,7 +128,7 @@ public class SaxonHEUtils {
                     resultNodes.add(itm);
                 }
             }
-            return new ListIterator.Of<Item>(resultNodes);
+            return new ListIterator.Of<>(resultNodes);
         } catch (Throwable e) {
             log.warn("代码高亮发生异常，hlCode=[{}],code=[{}]", hlCode, seq, e);
             return null;
