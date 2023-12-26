@@ -58,6 +58,7 @@
         <twelvemonkeys-imageio.version>3.10.1</twelvemonkeys-imageio.version>
         <maven-plugin-api.version>3.9.5</maven-plugin-api.version>
         <maven-plugin-annotations.version>3.10.2</maven-plugin-annotations.version>
+        <zip4j.version>2.11.5</zip4j.version>
 
         <plugin-compiler.version>3.8.1</plugin-compiler.version>
         <plugin-source.version>3.0.1</plugin-source.version>
@@ -178,7 +179,11 @@
                 <artifactId>poi-ooxml-full</artifactId>
                 <version>${poi.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>net.lingala.zip4j</groupId>
+                <artifactId>zip4j</artifactId>
+                <version>${zip4j.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
