@@ -58,6 +58,9 @@ public class SaxonHEUtils {
             FingerprintedQName fpQname = new FingerprintedQName(
                     config.getPrefix(), NamespaceUri.of(config.getUri()), ((StyledBlock) b).getStyle()
             );
+//            FingerprintedQName fpQname = new FingerprintedQName(
+//                    config.getPrefix(), config.getUri(), ((StyledBlock) b).getStyle()
+//            );
             builder.startElement(fpQname, AnyType.getInstance(), new SmallAttributeMap(Collections.emptyList()), NamespaceMap.emptyMap(), loc, 0);
             builder.characters(StringTool.fromCharSequence(b.getText()), loc, b.getText().length());
             builder.endElement();

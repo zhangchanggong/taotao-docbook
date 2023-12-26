@@ -27,6 +27,7 @@ import org.xml.sax.XMLReader;
 import store.taotao.docbook.core.TaotaoDocbookException;
 import store.taotao.docbook.core.docbook.VFSURIResolver;
 import store.taotao.docbook.core.highlight.Highlight;
+import store.taotao.docbook.core.saxon.UUIDExtension;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
@@ -89,6 +90,7 @@ public class XmlUtils {
 
             Configuration configuration=tfi.getConfiguration();
             configuration.registerExtensionFunction(new Highlight());
+            configuration.registerExtensionFunction(new UUIDExtension());
         }
     }
 

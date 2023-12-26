@@ -16,11 +16,11 @@
   -->
 
 <!--
-= 生成 html 5 用的xsl模版
+将 docbook 处理成单一文档
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                version="1.0"
-                xmlns:uuid="java.util.UUID"
+                version="2.0"
+                xmlns:uuid="http://store.taotao.com/uuid"
                 xmlns:docbook="http://docbook.org/ns/docbook"
                 exclude-result-prefixes="xsl docbook uuid">
     <xsl:output method="xml" version="1.0"
