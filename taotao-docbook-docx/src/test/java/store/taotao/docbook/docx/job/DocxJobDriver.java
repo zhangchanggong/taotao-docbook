@@ -3,7 +3,6 @@ package store.taotao.docbook.docx.job;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
-import org.apache.fop.apps.MimeConstants;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import store.taotao.docbook.core.TaotaoDocbookConstant;
@@ -29,7 +28,8 @@ class DocxJobDriver {
         ResourceJob.ResourceContext resourceContext = new ResourceJob.ResourceContext();
         resourceContext.setWorkDir(pwdPath + "/target/docbook");
         resourceContext.setResourcePaths(new String[]{
-                "classpath://resource_root"
+                "classpath://resource_root",
+                "classpath://demo/style"
         });
         resourceContext.setFontPaths(new String[]{
                 "classpath://fonts"
