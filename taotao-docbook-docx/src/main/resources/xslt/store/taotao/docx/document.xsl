@@ -20,31 +20,10 @@
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0"
-                xmlns:uuid="java.util.UUID"
-                xmlns:docbook="http://docbook.org/ns/docbook"
-                exclude-result-prefixes="xsl docbook uuid">
+                exclude-result-prefixes="xsl">
     <xsl:output method="xml" version="1.0"
-                encoding="UTF-8" indent="yes"/>
+                encoding="UTF-8" indent="yes" cdata-section-elements="RawData"/>
 
-    <xsl:template match="docbook:orderedlist[not(@id) or @id='']">
-        <xsl:call-template name="genId">
-            <xsl:with-param name="id_prefix" select="'ol'"/>
-        </xsl:call-template>
-    </xsl:template>
-    <xsl:template match="docbook:imagedata[not(@id) or @id='']">
-        <xsl:call-template name="genId">
-            <xsl:with-param name="id_prefix" select="'image'"/>
-        </xsl:call-template>
-    </xsl:template>
-
-    <xsl:template name="genId">
-        <xsl:param name="id_prefix"/>
-        <xsl:copy>
-            <xsl:variable name="refId" select="uuid:randomUUID()"/>
-            <xsl:attribute name="xml:id"><xsl:value-of select="$id_prefix"/>.<xsl:value-of select="$refId"/></xsl:attribute>
-            <xsl:apply-templates select="node()|@*"/>
-        </xsl:copy>
-    </xsl:template>
     <xsl:template match="node()|@*">
         <xsl:copy>
             <xsl:apply-templates select="node()|@*"/>
