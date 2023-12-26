@@ -16,15 +16,16 @@
   -->
 
 <!--
-生成 word 的 document xml
+生成 word 的同用处理逻辑部分
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0"
-                exclude-result-prefixes="xsl">
-    <xsl:import href="document/common.xsl"/>
-    <xsl:import href="document/top.xsl"/>
 
-
+                xmlns:docbook="http://docbook.org/ns/docbook"
+                exclude-result-prefixes="xsl docbook">
+    <!-- xml 的输出格式 -->
+    <xsl:output method="xml" version="1.0"
+                encoding="UTF-8" indent="yes" standalone="yes"/>
 
 
 </xsl:stylesheet>
