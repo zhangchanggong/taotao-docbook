@@ -66,7 +66,7 @@ public class JobContext {
      */
     private String[] fontPaths;
     /**
-     * 提供docx 西苑的路径
+     * 提供 docx 资源的路径
      */
     private String[] docxPaths;
 

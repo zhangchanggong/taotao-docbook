@@ -16,34 +16,33 @@
   -->
 
 <!--
-生成 word 的 document xml
+生成 word 的 numbering xml
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0"
-                exclude-result-prefixes="xsl">
+                xmlns:r="http://schemas.openxmlformats.org/package/2006/relationships"
+                xmlns:docbook="http://docbook.org/ns/docbook"
+                exclude-result-prefixes="xsl docbook r">
     <xsl:output method="xml" version="1.0"
                 encoding="UTF-8" indent="yes" standalone="yes"/>
     <xsl:template match="/">
-        <w:document xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
-                    xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
-                    xmlns:v="urn:schemas-microsoft-com:vml"
-                    xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
-                    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-                    xmlns:w10="urn:schemas-microsoft-com:office:word"
-                    xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
-                    >
-            <w:body>
-                <w:p>
-                    <w:r>
-                        <w:t>测试用文字</w:t>
-                    </w:r>
-                </w:p>
-            </w:body>
-        </w:document>
+        <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+            <xsl:apply-templates select="//docbook:imagedata"/>
+        </Relationships>
     </xsl:template>
-
-
+    <xsl:template match="docbook:imagedata">
+        <xsl:element name="Relationship" namespace="http://schemas.openxmlformats.org/package/2006/relationships">
+            <xsl:attribute name="Id">
+                <xsl:value-of select="@xml:id"/>
+            </xsl:attribute>
+            <xsl:attribute name="Target">
+                <xsl:value-of select="@fileref"/>
+            </xsl:attribute>
+            <xsl:attribute name="Type">
+                <xsl:value-of select="'http://schemas.openxmlformats.org/package/2006/relationships/image'"/>
+            </xsl:attribute>
+        </xsl:element>
+    </xsl:template>
 
 
 </xsl:stylesheet>

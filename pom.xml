@@ -362,7 +362,7 @@
         <developerConnection>scm:git:https://gitee.com/qq353586539/taotao-docbook.git</developerConnection>
     </scm>
     <issueManagement>
-        <system>Gitee Issues</system>
+        <system>gitee Issues</system>
         <url>https://gitee.com/qq353586539/taotao-docbook/issues</url>
     </issueManagement>
     <licenses>

@@ -50,6 +50,10 @@ public class TaotaoDocbookConstant {
      */
     public final static String FO_DIR="fo";
     /**
+     * single 临时文件夹
+     */
+    public final static String SINGLE="single_temp";
+    /**
      * html 默认文件夹
      */
     public final static String HTML_DIR="html";
