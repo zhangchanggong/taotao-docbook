@@ -11,6 +11,7 @@ import store.taotao.docbook.core.JobContext;
 import store.taotao.docbook.core.TaotaoDocbookException;
 import store.taotao.docbook.core.docbook.SingleOutputProcessor;
 import store.taotao.docbook.docx.processor.DocxImageProcessor;
+import store.taotao.docbook.docx.processor.DocxZipProcessor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,6 +40,8 @@ public class DocxJob implements Job<DocxJob.DocxJobContext> {
 
     private DocxImageProcessor imageProcessor=new DocxImageProcessor();
 
+    private DocxZipProcessor docxZipProcessor=new DocxZipProcessor();
+
     private String[] processes=new String[]{
             "single",
             "document",
@@ -61,7 +64,18 @@ public class DocxJob implements Job<DocxJob.DocxJobContext> {
 
         DocxImageProcessor.DocxImageProcessorConfig imageProcessorConfig=getDocxImageProcessorConfig(jobContext);
         imageProcessor.process(imageProcessorConfig);
+
+        DocxZipProcessor.DocxZipProcessorConfig zipProcessorConfig=getDocxZipProcessorConfig(jobContext);
+        docxZipProcessor.process(zipProcessorConfig);
         log.info("-------------------- docx Job 处理结束 --------------------");
+    }
+
+    private DocxZipProcessor.DocxZipProcessorConfig getDocxZipProcessorConfig(DocxJobContext jobContext) {
+        DocxZipProcessor.DocxZipProcessorConfig config=new DocxZipProcessor.DocxZipProcessorConfig();
+        config.setDocxDir(StringUtils.joinWith("/",jobContext.getWorkDir(),STAGING_DIR,DOCX_DIR));
+        config.setDescDir(jobContext.getDescDir());
+        config.setDescFile(jobContext.getDescFile());
+        return config;
     }
 
     private DocxImageProcessor.DocxImageProcessorConfig getDocxImageProcessorConfig(DocxJobContext jobContext) {
