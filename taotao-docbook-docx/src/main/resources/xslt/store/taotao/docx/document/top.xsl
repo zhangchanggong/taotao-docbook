@@ -64,9 +64,13 @@
             生成 article 的 body 部分，以便于覆盖
         -->
         <xsl:param name="article"/>
-        <xsl:message>
-            处理文章
-        </xsl:message>
+        <!-- TODO: 标题 -->
+        <xsl:call-template name="make-article-title">
+            <xsl:with-param name="article_info" select="$article/docbook:info|$article/docbook:articleinfo"/>
+        </xsl:call-template>
+        <!-- TODO: 版本 -->
+        <!-- TODO: 索引 -->
+        <!-- TODO: 正文 -->
     </xsl:template>
     <xsl:template name="make-book-body">
         <!--

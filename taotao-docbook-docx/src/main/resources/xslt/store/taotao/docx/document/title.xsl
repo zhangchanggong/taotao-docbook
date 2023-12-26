@@ -16,16 +16,22 @@
   -->
 
 <!--
-生成 word 的 document xml
+生成 word 的同用处理逻辑部分
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0"
-                exclude-result-prefixes="xsl">
-    <xsl:import href="document/common.xsl"/>
-    <xsl:import href="document/top.xsl"/>
-    <xsl:import href="document/title.xsl"/>
 
+                xmlns:docbook="http://docbook.org/ns/docbook"
+                exclude-result-prefixes="xsl docbook">
+    <!-- 生成文章主标题部分 -->
+    <xsl:template name="make-article-title">
+        <xsl:param name="article_info"/>
 
-
+        <xsl:message>
+            --------------------------
+            <xsl:value-of select="$article_info"/>
+            ==========================
+        </xsl:message>
+    </xsl:template>
 
 </xsl:stylesheet>
