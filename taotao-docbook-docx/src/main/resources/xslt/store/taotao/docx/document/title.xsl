@@ -20,18 +20,21 @@
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0"
-
+                xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
                 xmlns:docbook="http://docbook.org/ns/docbook"
-                exclude-result-prefixes="xsl docbook">
+                exclude-result-prefixes="xsl">
     <!-- 生成文章主标题部分 -->
     <xsl:template name="make-article-title">
         <xsl:param name="article_info"/>
+        <w:p>
+            <w:rPr>
 
-        <xsl:message>
-            --------------------------
-            <xsl:value-of select="$article_info"/>
-            ==========================
-        </xsl:message>
+            </w:rPr>
+            <w:r>
+                <w:t><xsl:value-of select="$article_info/title/text()"/></w:t>
+            </w:r>
+        </w:p>
+
     </xsl:template>
 
 </xsl:stylesheet>

@@ -22,7 +22,7 @@
                 version="1.0"
 
                 xmlns:docbook="http://docbook.org/ns/docbook"
-                exclude-result-prefixes="xsl docbook">
+                exclude-result-prefixes="xsl">
     <!-- xml 的输出格式 -->
     <xsl:output method="xml" version="1.0"
                 encoding="UTF-8" indent="yes" standalone="yes"/>

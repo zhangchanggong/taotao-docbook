@@ -1,0 +1,6 @@
+:leveloffset: +1
+= 全局变量
+
+plantuml::plantuml/styles.puml[format=png]
+
+include::common/style.adoc[]
