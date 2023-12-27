@@ -1,6 +1,7 @@
 /.idea/
-/taotao-docbook-core/.asciidoctor/
+/**/.asciidoctor/
 /**/target/
 /target/
 /**/*.iml
 /**/*.docx
+/docs/**/*.pdf

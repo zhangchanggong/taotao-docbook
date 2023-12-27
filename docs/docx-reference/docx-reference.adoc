@@ -1,4 +1,5 @@
 :leveloffset: +1
+:diagram-cachedir: .asciidoctor/diagram
 = docx 模块开发手册
 
 include::xslt-develop-guide/index.adoc[]
