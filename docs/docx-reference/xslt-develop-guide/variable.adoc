@@ -1,0 +1,4 @@
+:leveloffset: +1
+= 全局变量
+
+include::common/variable.adoc[]

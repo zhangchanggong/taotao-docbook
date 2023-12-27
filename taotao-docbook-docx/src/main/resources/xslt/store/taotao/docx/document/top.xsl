@@ -39,6 +39,11 @@
                 <xsl:apply-templates mode="word.body"/>
             </w:body>
         </w:document>
+        <xsl:message>
+==================================================
+    文档类型 docbook.type=[<xsl:value-of select="$docbook.type"/>]
+==================================================
+        </xsl:message>
     </xsl:template>
 
     <xsl:template match="docbook:article" mode="word.body">
@@ -68,6 +73,7 @@
         <xsl:call-template name="make-article-title">
             <xsl:with-param name="article_info" select="$article/docbook:info|$article/docbook:articleinfo"/>
         </xsl:call-template>
+
         <!-- TODO: 版本 -->
         <!-- TODO: 索引 -->
         <!-- TODO: 正文 -->
