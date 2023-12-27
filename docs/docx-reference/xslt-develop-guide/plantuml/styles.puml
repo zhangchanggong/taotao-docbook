@@ -1,3 +1,5 @@
 @startuml
-class test{}
+rectangle "基本正文" as normal
+
+hide members
 @enduml

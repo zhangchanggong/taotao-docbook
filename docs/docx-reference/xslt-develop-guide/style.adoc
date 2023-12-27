@@ -1,6 +1,22 @@
 :leveloffset: +1
-= 全局变量
+:plantuml-charset: utf-8
+= 绑定样式
 
-plantuml::plantuml/styles.puml[format=png]
+[plantuml,format=png]
+----
+include::plantuml/styles.puml[]
+----
+
+[width="100%",options="header",cols="^.^1,^.^3,^.^3,^.^3,.^6",valign="middle"]
+|===
+|序号 | styleId | 名称 | 类型 | 简介
+
+|1
+|normal
+|基本正文
+|paragraph
+| 默认的基本正文
+
+|===
 
 include::common/style.adoc[]
