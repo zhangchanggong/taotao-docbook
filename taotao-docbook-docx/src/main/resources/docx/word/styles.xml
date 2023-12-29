@@ -11,7 +11,7 @@
     <w:docDefaults>
         <w:rPrDefault>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:eastAsiaTheme="minorHAnsi"
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:eastAsiaTheme="minorEastAsia"
                           w:cstheme="minorBidi"/>
             </w:rPr>
         </w:rPrDefault>
@@ -277,11 +277,9 @@
             <w:spacing w:after="200"/>
         </w:pPr>
         <w:rPr>
-            <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:eastAsiaTheme="minorHAnsi"
-                      w:cstheme="minorBidi"/>
             <w:sz w:val="24"/>
             <w:szCs w:val="24"/>
-            <w:lang w:val="en-US" w:eastAsia="en-US" w:bidi="ar-SA"/>
+            <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar-SA"/>
         </w:rPr>
     </w:style>
 

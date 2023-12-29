@@ -1,5 +1,31 @@
 :leveloffset: +1
 = 通用部分
+:stem:
 
+== 基本正文
 
+默认的段落样式，id 为 `normal`，可以在样式列表中看到 `<w:qFormat/>`，排在样式列表的首位 `<w:uiPriority w:val="0"/>`。 样式包含的内容如下：
+
+1. 段后间距为 10pt (`<w:spacing w:after="200"/>`,这里的单位是 stem:[1/20] pt 也就是 stem:[1/10] half-point,由于一般的打印机分辨率为 144 dpi（墨点每英寸），所以这里控制的精度为 stem:[1/10] 墨点)。
+1. 设置拉丁字体大小 24 half-point，及 12 pt `<w:sz w:val="24"/>`。
+1. 设置非拉丁字体（Complex Script Characters）大小为 24 half-point，及 12 pt `<w:szCs w:val="24"/>`。
+1. 设置拼写检查规则，拉丁语为英语（美国），东亚语言为汉语（中国），双向书写语言为阿拉伯语（卡塔尔）。`<w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar-SA"/>`
+
+[source,xml]
+----
+<!-- 正文基础样式 -->
+<w:style w:type="paragraph" w:default="1" w:styleId="normal">
+    <w:name w:val="基本正文"/>
+    <w:qFormat/>
+    <w:uiPriority w:val="0"/>
+    <w:pPr>
+        <w:spacing w:after="200"/>
+    </w:pPr>
+    <w:rPr>
+        <w:sz w:val="24"/>
+        <w:szCs w:val="24"/>
+        <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar-SA"/>
+    </w:rPr>
+</w:style>
+----
 
