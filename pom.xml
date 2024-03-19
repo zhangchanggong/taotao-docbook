@@ -22,7 +22,7 @@
 
     <groupId>store.taotao.docbook</groupId>
     <artifactId>taotao-docbook</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
     <name>taotao-docbook</name>
     <description>jdocbook 的升级替代品。</description>
     <modules>
