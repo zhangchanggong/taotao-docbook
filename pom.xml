@@ -42,7 +42,7 @@
         <docbook-xsl.version>1.79.1</docbook-xsl.version>
         <junit.version>5.9.0</junit.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <logback.version>1.4.0</logback.version>
+        <logback.version>1.4.14</logback.version>
         <lang3.version>3.12.0</lang3.version>
         <lombok.version>1.18.24</lombok.version>
         <vfs2.version>2.9.0</vfs2.version>
