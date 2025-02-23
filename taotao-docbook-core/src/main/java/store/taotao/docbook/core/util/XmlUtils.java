@@ -137,6 +137,7 @@ public class XmlUtils {
         log.debug("------------------ getSAXSource 开始 -----------------");
         SAXParserFactory saxParserFactory = XmlUtils.getSAXParserFactory();
         saxParserFactory.setXIncludeAware(true);
+        saxParserFactory.setNamespaceAware(true);
         XMLReader xmlReader = null;
         try {
             xmlReader = saxParserFactory.newSAXParser().getXMLReader();
