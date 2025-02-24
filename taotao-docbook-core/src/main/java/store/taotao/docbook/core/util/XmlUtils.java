@@ -24,9 +24,9 @@ import org.apache.commons.vfs2.FileSystemException;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
-import store.taotao.docbook.core.highlight.Highlight;
 import store.taotao.docbook.core.TaotaoDocbookException;
 import store.taotao.docbook.core.docbook.VFSURIResolver;
+import store.taotao.docbook.core.highlight.Highlight;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
@@ -89,6 +89,23 @@ public class XmlUtils {
 
             Configuration configuration=tfi.getConfiguration();
             configuration.registerExtensionFunction(new Highlight());
+            configuration.setXIncludeAware(true);
+            tfi.setErrorListener(new ErrorListener() {
+                @Override
+                public void warning(TransformerException exception) throws TransformerException {
+                    log.error("warning", exception);
+                }
+
+                @Override
+                public void error(TransformerException exception) throws TransformerException {
+                    log.error("error", exception);
+                }
+
+                @Override
+                public void fatalError(TransformerException exception) throws TransformerException {
+                    log.error("fatalError", exception);
+                }
+            });
         }
     }
 
@@ -137,6 +154,8 @@ public class XmlUtils {
         log.debug("------------------ getSAXSource 开始 -----------------");
         SAXParserFactory saxParserFactory = XmlUtils.getSAXParserFactory();
         saxParserFactory.setXIncludeAware(true);
+        saxParserFactory.setNamespaceAware(true);
+        saxParserFactory.setValidating(true);
         XMLReader xmlReader = null;
         try {
             xmlReader = saxParserFactory.newSAXParser().getXMLReader();
