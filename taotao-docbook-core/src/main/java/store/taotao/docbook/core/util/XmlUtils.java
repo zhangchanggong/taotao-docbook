@@ -86,8 +86,8 @@ public class XmlUtils {
     private static void configFactory(TransformerFactory transformerFactory) {
         if (transformerFactory instanceof TransformerFactoryImpl){
             TransformerFactoryImpl tfi=(TransformerFactoryImpl) transformerFactory;
-
             Configuration configuration=tfi.getConfiguration();
+            configuration.setXIncludeAware(true);
             configuration.registerExtensionFunction(new Highlight());
             configuration.setXIncludeAware(true);
             tfi.setErrorListener(new ErrorListener() {
