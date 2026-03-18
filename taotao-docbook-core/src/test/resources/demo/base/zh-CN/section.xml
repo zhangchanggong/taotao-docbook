@@ -16,7 +16,7 @@
   -->
 
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
-	xml:lang="zh_CN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+         xml:lang="zh_CN">
 	<title>章节</title>
 	<para>这是自然段，上面是章节的标题。这是一篇article，所以只包含节（section）不包含章（charper）。这是顶层的节
 	</para>

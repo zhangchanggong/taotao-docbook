@@ -21,7 +21,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0"
                 xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-                xmlns:docbook="http://docbook.org/ns/docbook"
                 exclude-result-prefixes="xsl">
     <!-- 生成文章主标题部分 -->
     <xsl:template name="make-article-title">

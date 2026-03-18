@@ -2,7 +2,7 @@
 <xsd:schema elementFormDefault="qualified"
             targetNamespace="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
             xmlns="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
-            xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" blockDefault="#all"
+            blockDefault="#all"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <xsd:simpleType name="ST_RelationshipId">
         <xsd:annotation>

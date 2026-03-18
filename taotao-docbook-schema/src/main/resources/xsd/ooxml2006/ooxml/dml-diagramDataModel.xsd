@@ -2,7 +2,6 @@
 <xsd:schema targetNamespace="http://schemas.openxmlformats.org/drawingml/2006/diagram" elementFormDefault="qualified"
             attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-            xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
             xmlns="http://schemas.openxmlformats.org/drawingml/2006/diagram">
     <xsd:import schemaLocation="shared-relationshipReference.xsd"
                 namespace="http://schemas.openxmlformats.org/officeDocument/2006/relationships"/>

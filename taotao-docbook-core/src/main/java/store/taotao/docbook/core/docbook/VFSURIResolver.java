@@ -17,8 +17,8 @@
 package store.taotao.docbook.core.docbook;
 
 import lombok.extern.slf4j.Slf4j;
-import store.taotao.docbook.core.util.XmlUtils;
 import store.taotao.docbook.core.TaotaoDocbookException;
+import store.taotao.docbook.core.util.XmlUtils;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;

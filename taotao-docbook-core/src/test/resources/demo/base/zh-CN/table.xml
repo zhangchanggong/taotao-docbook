@@ -16,7 +16,7 @@
   -->
 
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
-	xml:lang="zh_CN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+         xml:lang="zh_CN">
 	<title>表格</title>
 	<para>表格是数据的一种重要表示形式，docbook有两种风格的表格</para>
 	<section>

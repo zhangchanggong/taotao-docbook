@@ -4,9 +4,10 @@
 	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
 ]>
 <svg version="1.1"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="59px" height="57px" viewBox="-0.473 -0.305 59 57" enable-background="new -0.473 -0.305 59 57"
-	 xml:space="preserve">
+     xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+     x="0px" y="0px" width="59px" height="57px" viewBox="-0.473 -0.305 59 57"
+     enable-background="new -0.473 -0.305 59 57"
+     xml:space="preserve">
 <defs>
 </defs>
 <polygon stroke="#8C8C8C" stroke-width="0.4664" points="49.881,45.323 48.491,46.997 44.239,47.389 39.162,43.175 42.482,39.179 

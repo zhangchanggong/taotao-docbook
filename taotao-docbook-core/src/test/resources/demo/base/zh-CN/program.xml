@@ -16,7 +16,7 @@
   -->
 
 <section xmlns="http://docbook.org/ns/docbook" version="5.0"
-	xml:lang="zh_CN" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+         xml:lang="zh_CN">
 	<title>代码与代码高亮</title>
 	<para>这才是重头戏，代码与代码高亮。洋洋洒洒数千言，不如一篇例子来的简单。</para>
 	<section>

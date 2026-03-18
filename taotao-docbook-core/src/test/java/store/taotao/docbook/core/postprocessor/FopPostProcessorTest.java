@@ -26,7 +26,7 @@ import store.taotao.docbook.core.util.VFSUtils;
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class FopPostProcessorTest {
 

@@ -21,8 +21,8 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import store.taotao.docbook.core.JobContext;
 import store.taotao.docbook.core.Job;
+import store.taotao.docbook.core.JobContext;
 import store.taotao.docbook.core.TaotaoDocbookException;
 import store.taotao.docbook.core.preprocessor.CleanPreProcessor;
 

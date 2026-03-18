@@ -31,7 +31,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static store.taotao.docbook.core.TaotaoDocbookConstant.*;
-import static store.taotao.docbook.core.TaotaoDocbookConstant.DOCX_DIR;
 
 /**
  * 资源准备的 job
