@@ -1197,6 +1197,15 @@
 								 mode="book.titlepage.recto.mode" />
 		</fo:block>
 	</xsl:template>
+	<xsl:template match="d:title" mode="article.titlepage.recto.auto.mode">
+		<fo:block xsl:use-attribute-sets="article.titlepage.recto.style"
+				  keep-with-next.within-column="always"
+				  font-size="34pt" font-weight="bold">
+			<xsl:call-template name="division.title">
+				<xsl:with-param name="node" select="ancestor-or-self::d:article[1]"/>
+			</xsl:call-template>
+		</fo:block>
+	</xsl:template>
 	<!-- 勘误编号 -->
 	<xsl:template match="d:issuenum" mode="book.titlepage.recto.auto.mode">
 		<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format"

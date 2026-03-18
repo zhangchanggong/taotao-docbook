@@ -21,15 +21,19 @@ import net.sf.saxon.Configuration;
 import net.sf.saxon.TransformerFactoryImpl;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
+import org.apache.xerces.impl.Constants;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import store.taotao.docbook.core.TaotaoDocbookException;
+import store.taotao.docbook.core.docbook.VFSEntityResolver;
 import store.taotao.docbook.core.docbook.VFSURIResolver;
+import store.taotao.docbook.core.highlight.Highlight;
 import store.taotao.docbook.core.highlight.Highlight;
 import store.taotao.docbook.core.saxon.UUIDExtension;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.*;
 import javax.xml.transform.sax.SAXSource;
@@ -87,10 +91,26 @@ public class XmlUtils {
     private static void configFactory(TransformerFactory transformerFactory) {
         if (transformerFactory instanceof TransformerFactoryImpl){
             TransformerFactoryImpl tfi=(TransformerFactoryImpl) transformerFactory;
-
             Configuration configuration=tfi.getConfiguration();
+            configuration.setXIncludeAware(true);
             configuration.registerExtensionFunction(new Highlight());
             configuration.registerExtensionFunction(new UUIDExtension());
+            tfi.setErrorListener(new ErrorListener() {
+                @Override
+                public void warning(TransformerException exception) throws TransformerException {
+                    log.error("warning", exception);
+                }
+
+                @Override
+                public void error(TransformerException exception) throws TransformerException {
+                    log.error("error", exception);
+                }
+
+                @Override
+                public void fatalError(TransformerException exception) throws TransformerException {
+                    log.error("fatalError", exception);
+                }
+            });
         }
     }
 
@@ -140,9 +160,15 @@ public class XmlUtils {
         SAXParserFactory saxParserFactory = XmlUtils.getSAXParserFactory();
         saxParserFactory.setXIncludeAware(true);
         saxParserFactory.setNamespaceAware(true);
+        saxParserFactory.setValidating(true);
         XMLReader xmlReader = null;
         try {
-            xmlReader = saxParserFactory.newSAXParser().getXMLReader();
+            VFSEntityResolver vfsEntityResolver = new VFSEntityResolver();
+            SAXParser saxParser = saxParserFactory.newSAXParser();
+            saxParser.setProperty(Constants.XERCES_PROPERTY_PREFIX + Constants.ENTITY_RESOLVER_PROPERTY, vfsEntityResolver);
+
+            xmlReader = saxParser.getXMLReader();
+
             InputSource inputSource = XmlUtils.getInputSource(href,base);
             SAXSource saxSource = new SAXSource(xmlReader, inputSource);
             log.debug("saxSource=[{}]",saxSource);

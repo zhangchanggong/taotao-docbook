@@ -50,12 +50,13 @@
         <vfs2.version>2.9.0</vfs2.version>
         <saxon-HE.version>12.4</saxon-HE.version>
         <xerces.version>2.12.2</xerces.version>
+        <xalan.version>2.7.3</xalan.version>
         <xslthl.version>2.1.3</xslthl.version>
         <fop.version>2.9</fop.version>
         <fop-hyph.version>2.0</fop-hyph.version>
         <io.version>2.15.0</io.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
-        <twelvemonkeys-imageio.version>3.10.1</twelvemonkeys-imageio.version>
+        <twelvemonkeys-imageio.version>3.11.0</twelvemonkeys-imageio.version>
         <maven-plugin-api.version>3.9.5</maven-plugin-api.version>
         <maven-plugin-annotations.version>3.10.2</maven-plugin-annotations.version>
         <zip4j.version>2.11.5</zip4j.version>
@@ -71,7 +72,7 @@
         <plugin-surefire.version>3.0.0-M5</plugin-surefire.version>
         <plugin-plugin.version>3.6.4</plugin-plugin.version>
         <plugin-gpg.version>3.0.1</plugin-gpg.version>
-        <plugin-nexus.version>1.6.13</plugin-nexus.version>
+        <plugin-central.version>0.10.0</plugin-central.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -87,6 +88,7 @@
                 <artifactId>docbook-xsl</artifactId>
                 <version>${docbook-xsl.version}</version>
                 <classifier>ns-resources</classifier>
+                <!--                <classifier>resources</classifier>-->
                 <type>zip</type>
             </dependency>
             <dependency>
@@ -279,13 +281,12 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <publishingServerId>ossrh</publishingServerId>
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
         </plugins>
@@ -347,9 +348,9 @@
                     <version>${plugin-gpg.version}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.sonatype.plugins</groupId>
-                    <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>${plugin-nexus.version}</version>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>${plugin-central.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -380,11 +381,11 @@
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://central.sonatype.com/api/v1/publish/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <url>https://central.sonatype.com/api/v1/publish/releases</url>
         </repository>
     </distributionManagement>
 </project>

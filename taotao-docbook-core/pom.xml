@@ -26,6 +26,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>bundle</packaging>
     <artifactId>taotao-docbook-core</artifactId>
+    <name>taotao-docbook-core</name>
     <dependencies>
         <dependency>
             <groupId>net.sf.docbook</groupId>

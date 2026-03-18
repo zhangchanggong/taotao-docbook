@@ -22,6 +22,7 @@ import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.FileSystemManager;
 import org.apache.commons.vfs2.VFS;
+import store.taotao.docbook.core.TaotaoDocbookException;
 
 import java.net.URI;
 
@@ -74,6 +75,23 @@ public class VFSUtils {
     public static FileObject getResource(URI uri) throws FileSystemException{
         FileSystemManager fsm = VFS.getManager();
         return fsm.resolveFile(uri);
+    }
+
+    public static URI getURI(String href, String base) throws TaotaoDocbookException {
+        log.debug("------------------ getURI 开始 -----------------");
+        try {
+            FileObject resource = getResource(href, base);
+            if (null == resource) {
+                return null;
+            }
+            log.debug("resource=[{}]", resource);
+            return resource.getURI();
+        } catch (FileSystemException e) {
+            log.warn("getURI 时 vfs 错误，href=[{}],base=[{}]", href, base, e);
+            throw new TaotaoDocbookException("getResult 时 vfs 错误", e);
+        } finally {
+            log.debug("------------------ getURI 结束-----------------");
+        }
     }
 
 
