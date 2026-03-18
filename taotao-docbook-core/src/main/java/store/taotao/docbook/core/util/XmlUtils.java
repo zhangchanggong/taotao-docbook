@@ -92,7 +92,6 @@ public class XmlUtils {
             Configuration configuration=tfi.getConfiguration();
             configuration.setXIncludeAware(true);
             configuration.registerExtensionFunction(new Highlight());
-            configuration.setXIncludeAware(true);
             tfi.setErrorListener(new ErrorListener() {
                 @Override
                 public void warning(TransformerException exception) throws TransformerException {
