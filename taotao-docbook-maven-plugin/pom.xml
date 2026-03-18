@@ -24,6 +24,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>taotao-docbook-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
+    <name>taotao-docbook-maven-plugin</name>
     <description>taotao 的 docbook 插件</description>
     <dependencies>
         <dependency>

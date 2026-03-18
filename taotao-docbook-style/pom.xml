@@ -27,5 +27,6 @@
 
     <artifactId>taotao-docbook-style</artifactId>
     <packaging>jar</packaging>
+    <name>taotao-docbook-style</name>
 
 </project>

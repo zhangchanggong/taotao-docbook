@@ -70,7 +70,7 @@
         <plugin-surefire.version>3.0.0-M5</plugin-surefire.version>
         <plugin-plugin.version>3.6.4</plugin-plugin.version>
         <plugin-gpg.version>3.0.1</plugin-gpg.version>
-        <plugin-nexus.version>1.6.13</plugin-nexus.version>
+        <plugin-central.version>0.10.0</plugin-central.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -269,13 +269,12 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <publishingServerId>ossrh</publishingServerId>
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
         </plugins>
@@ -337,9 +336,9 @@
                     <version>${plugin-gpg.version}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.sonatype.plugins</groupId>
-                    <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>${plugin-nexus.version}</version>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>${plugin-central.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -370,11 +369,11 @@
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://central.sonatype.com/api/v1/publish/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <url>https://central.sonatype.com/api/v1/publish/releases</url>
         </repository>
     </distributionManagement>
 </project>
